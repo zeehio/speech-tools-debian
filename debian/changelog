@@ -1,3 +1,10 @@
+speech-tools (1:1.2.96~beta-2) UNRELEASED; urgency=low
+
+  * debian/control:
+    + Add Vcs-Git and Vcs-Browser fields.
+
+ -- Kumar Appaiah <akumar@ee.iitm.ac.in>  Tue, 27 Nov 2007 13:28:45 +0530
+
 speech-tools (1:1.2.96~beta-1) unstable; urgency=low
 
   [Kumar Appaiah]

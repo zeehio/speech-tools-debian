@@ -3,10 +3,11 @@ Section: sound
 Priority: optional
 Maintainer: Kartik Mistry <kartik.mistry@gmail.com>
 Uploaders: Kumar Appaiah <akumar@ee.iitm.ac.in>
-XS-Dm-Upload-Allowed: yes
-Homepage: http://www.cstr.ed.ac.uk/projects/speech_tools/
 Build-Depends: debhelper (>= 5), autotools-dev, gawk | awk, libesd0-dev, libncurses5-dev, quilt (>= 0.40)
 Standards-Version: 3.7.2
+Homepage: http://www.cstr.ed.ac.uk/projects/speech_tools/
+Vcs-Git: git://git.debian.org/git/collab-maint/speech-tools.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/speech-tools.git
 
 Package: libestools1.2
 Architecture: any
