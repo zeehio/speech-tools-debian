@@ -1,0 +1,32 @@
+--- speech-tools-1.2.3.orig/speech_class/EST_TrackFile.cc
++++ speech-tools-1.2.3/speech_class/EST_TrackFile.cc
+@@ -36,8 +36,8 @@
+ /*                   File I/O functions for EST_Track class              */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include <stdlib.h>
+ #include <math.h>
+ #include <time.h>
+@@ -570,15 +570,15 @@
+     
+     while (1)
+     {
+-	t = ts.get_upto_eoln();
++	t = EST_String(ts.get_upto_eoln());
+ 	//	cout << "t=" << t << endl;
+ 	if (t.contains("teaching output included"))
+ 	    teaching = 1;
+ 	if (!t.contains(":"))
+ 	    break;
+ 	str.open_string(t);
+-	k = str.get_upto(":");
+-	v = str.get_upto_eoln();
++	k = EST_String(str.get_upto(":"));
++	v = EST_String(str.get_upto_eoln());
+ 	if (k == "No. of output units")
+ 	    num_channels = v.Int();
+ 	if (k == "No. of patterns")

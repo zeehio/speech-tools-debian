@@ -1,0 +1,13 @@
+Index: b/config/compilers/gcc32.mak
+===================================================================
+--- a/config/compilers/gcc32.mak
++++ b/config/compilers/gcc32.mak
+@@ -56,7 +56,7 @@
+ MAKE_DEPEND_C = $(CC) -MM $(INCLUDES) $(TEMPLATES) $(TEMPLATE_SPECIFIC)
+ MAKE_DEPEND_CXX = $(CC) -MM $(INCLUDES) $(WARN_CXXFLAGS) $(TEMPLATES) $(TEMPLATE_SPECIFIC)
+ 
+-COMPILERLIBS= $(COMPILER_LIBS_DIR:%=-L%) -lstdc++
++COMPILERLIBS= $(COMPILER_LIBS_DIR:%=-L%)
+ 
+ 
+ 

@@ -1,0 +1,11 @@
+--- speech-tools-1.2.3.orig/sigpr/pda/srpd1.3.cc
++++ speech-tools-1.2.3/sigpr/pda/srpd1.3.cc
+@@ -68,7 +68,7 @@
+ 
+ #include <math.h>
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "srpd.h"
+ #include "EST_cutils.h"
+ #include "EST_Wave.h"

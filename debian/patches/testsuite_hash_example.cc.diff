@@ -1,0 +1,31 @@
+--- speech-tools-1.2.3.orig/testsuite/hash_example.cc
++++ speech-tools-1.2.3/testsuite/hash_example.cc
+@@ -39,7 +39,7 @@
+  /************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include <math.h>
+ #include "EST_THash.h"
+ #include "EST_String.h"
+@@ -71,8 +71,8 @@
+ 
+ EST_THash<int,float> logs(100);
+ 
+-logs.add_item(12, log(12));
+-logs.add_item(34, log(34));
++logs.add_item(12, log((float)12));
++logs.add_item(34, log((float)34));
+ 
+ cout << "length of `fred' = " << lengths.val("fred") << "\n";
+ cout << "log of 34' = " << logs.val(34) << "\n";
+@@ -135,7 +135,7 @@
+ }
+ 
+ 
+-Declare_THash(int,float)
++Declare_THash_Base(int,float,0,0.0,NULL)
+ 
+ #if defined(INSTANTIATE_TEMPLATES)
+ #include "../base_class/EST_THash.cc"

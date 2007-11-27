@@ -1,0 +1,31 @@
+--- speech-tools-1.2.3.orig/grammar/ngram/EST_Ngrammar.cc
++++ speech-tools-1.2.3/grammar/ngram/EST_Ngrammar.cc
+@@ -37,8 +37,8 @@
+ /* An EST_Ngram class for building and manipulating bigrams trigrams etc */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include <math.h>
+ #include <limits.h>
+@@ -579,7 +579,7 @@
+ 	return false;
+     }
+     
+-    p_num_states = (int)pow(vocab->length(),p_order-1);
++    p_num_states = (int)pow(vocab->length(),(float)(p_order-1));
+     p_states = new EST_NgrammarState[p_num_states];
+     for (i=0; i < p_num_states; i++)
+ 	p_states[i].init(i,pred_vocab);
+@@ -597,7 +597,7 @@
+ 	return false;
+     }
+     
+-    p_num_states = (int)pow(vocab->length(),p_order-1);
++    p_num_states = (int)pow(vocab->length(),(float)(p_order-1));
+     p_states = new EST_NgrammarState[p_num_states];
+     
+     return (bool)(p_states != NULL);

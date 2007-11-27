@@ -1,0 +1,10 @@
+--- speech-tools-1.2.3.orig/configure.in
++++ speech-tools-1.2.3/configure.in
+@@ -34,6 +34,7 @@
+ 
+ AC_CANONICAL_SYSTEM
+ AC_PROG_CC
++AC_PROG_CXX
+ if test "x$GCC" = "xyes"; then
+ 	CFLAGS="$CFLAGS -Wall"
+ fi

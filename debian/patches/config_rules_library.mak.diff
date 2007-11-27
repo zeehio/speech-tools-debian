@@ -1,0 +1,19 @@
+--- speech-tools-1.2.3.orig/config/rules/library.mak
++++ speech-tools-1.2.3/config/rules/library.mak
+@@ -107,10 +107,13 @@
+ 	@if [ ! -d shared_space ] ; then mkdir shared_space ; else $(RM) -f shared_space/*.o ; fi
+ 	@(cd shared_space ; $(AR) x ../$< ) 
+ 	@echo Link Shared Library $*
+-	if [ -n "$(PROJECT_LIBRARY_NEEDS_SYSLIBS_$*)" ] ; then libs='$(JAVA_PROJECT_LIBS)' ; fi ;\
+-	$(subst XXX,$@.$(PROJECT_LIBRARY_VERSION_$*),$(MAKE_SHARED_LIB)) shared_space/*.o $(PROJECT_LIBRARY_USES_$*:%=-L. -l%) $$libs
++	@if [ -n "$(PROJECT_LIBRARY_NEEDS_SYSLIBS_$*)" ] ; then libs='$(JAVA_PROJECT_LIBS)' ; fi ;\
++	$(subst YYY,$@.$(PROJECT_LIBRARY_VERSION_$*),\
++		$(subst XXX,$@.$(PROJECT_VERSION),$(MAKE_SHARED_LIB))) \
++		shared_space/*.o $(PROJECT_LIBRARY_USES_$*:%=-L. -l%) $$libs
+ 	@$(RM) -f shared_space/*.o $@
+-	@ln -s $@.$(PROJECT_LIBRARY_VERSION_$*) $@
++	@ln -sf $@.$(PROJECT_VERSION) $@.$(PROJECT_LIBRARY_VERSION_$*)
++	@ln -sf $@.$(PROJECT_LIBRARY_VERSION_$*) $@
+ 
+  ###########################################################################
+  ##                                                                       ##

@@ -1,0 +1,20 @@
+--- speech-tools-1.2.96~beta.orig/stats/EST_DProbDist.cc
++++ speech-tools-1.2.96~beta/stats/EST_DProbDist.cc
+@@ -310,7 +310,7 @@
+     if (type == tprob_discrete)
+ 	return 0;
+     else
+-	return (int)scounts.list.head();
++	return (long)scounts.list.head();
+ }
+ 
+ int EST_DiscreteProbDistribution::item_end(int idx) const
+@@ -326,7 +326,7 @@
+     if (type == tprob_discrete)
+ 	return ++idx;
+     else
+-	return (int)next((EST_Litem *)idx);
++	return (long)next((EST_Litem *)idx);
+ }
+ 
+ const EST_String &EST_DiscreteProbDistribution::item_name(int idx) const

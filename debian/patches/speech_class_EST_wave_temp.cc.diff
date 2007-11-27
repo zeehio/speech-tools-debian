@@ -1,0 +1,13 @@
+Index: b/speech_class/EST_wave_temp.cc
+===================================================================
+--- a/speech_class/EST_wave_temp.cc
++++ b/speech_class/EST_wave_temp.cc
+@@ -110,7 +110,7 @@
+     for (i = 0; i < size; ++i)
+     {
+       // cout << i << " " << a.a(i, channel) << " " << b.a(i, channel) << endl;
+-      sum += fabs(float(a.a(i, channel) - b.a(i, channel)));
++      sum += abs(float(a.a(i, channel) - b.a(i, channel)));
+     }
+     return sum / size;
+ }

@@ -1,0 +1,14 @@
+--- speech-tools-1.2.3.orig/include/EST_Pathname.h
++++ speech-tools-1.2.3/include/EST_Pathname.h
+@@ -41,6 +41,11 @@
+   * available as methods. Different implementations are provided for 
+   * different systems.
+   */
++
++class EST_Pathname;
++EST_Pathname operator + (const EST_Pathname p, const EST_Pathname addition);
++EST_Pathname operator + (const char *p, const EST_Pathname addition);
++
+ class EST_Pathname : public EST_String {
+ 
+ private:

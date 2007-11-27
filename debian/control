@@ -1,0 +1,52 @@
+Source: speech-tools
+Section: sound
+Priority: optional
+Maintainer: Kartik Mistry <kartik.mistry@gmail.com>
+Uploaders: Kumar Appaiah <akumar@ee.iitm.ac.in>
+XS-Dm-Upload-Allowed: yes
+Homepage: http://www.cstr.ed.ac.uk/projects/speech_tools/
+Build-Depends: debhelper (>= 5), autotools-dev, gawk | awk, libesd0-dev, libncurses5-dev, quilt (>= 0.40)
+Standards-Version: 3.7.2
+
+Package: libestools1.2
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: speech-tools1, libestools1.2c102
+Replaces: speech-tools1, libestools1.2c102
+Description: Edinburgh Speech Tools Library
+ A library for use in speech software, such as the festival speech synthesis
+ system.
+
+Package: libestools1.2-dev
+Architecture: any
+Section: libdevel
+Depends: libc6-dev, libesd0-dev, libestools1.2 (= ${binary:Version}), libncurses5-dev
+Conflicts: speech-tools-dev
+Replaces: speech-tools-dev
+Provides: libestools-dev
+Recommends: speech-tools-doc
+Description: Edinburgh Speech Tools Library - developer's libraries and docs
+ This package contains the header files, static libraries and documentation that
+ developers using the Edinburgh Speech Tools Library will need.
+
+Package: speech-tools
+Architecture: any
+Section: sound
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: speech-tools-bin
+Replaces: speech-tools-bin
+Suggests: speech-tools-doc
+Description: Edinburgh Speech Tools - user binaries
+ This package contains the various highly useful utility programs that use and
+ accompany the Edinburgh Speech Tools Library. Audio softwares and some basic
+ signal processing software is included in this package.
+ .
+ The following programs are available:
+ na_play: generic playback program for use with net_audio and CSTR ao.
+ ch_wave: Waveform file conversion program.
+ ch_lab: label file conversion program.
+ ch_track: Track file conversion program.
+ wagon: a CART tree build and test program
+ .
+ See /usr/share/doc/speech-tools/README for detail list of programs available.

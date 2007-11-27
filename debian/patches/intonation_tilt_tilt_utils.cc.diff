@@ -1,0 +1,26 @@
+--- speech-tools-1.2.3.orig/intonation/tilt/tilt_utils.cc
++++ speech-tools-1.2.3/intonation/tilt/tilt_utils.cc
+@@ -378,9 +378,9 @@
+ 
+     x = (t / (dur)) * 2.0;
+     if (x < 1.0)
+-	val = pow(x, 2.0);
++	val = pow(x, (float)2.0);
+     else
+-	val = 2 - pow((2 - x), 2.0);
++	val = 2 - pow((2 - x), (float)2.0);
+ 	
+     val = (val / 2.0);
+ 	
+@@ -398,9 +398,9 @@
+     x = (t / length) * 2.0;
+     
+     if (x < 1.0)
+-	val = pow(x, curve);
++	val = pow((double)x, (double)curve);
+     else
+-	val = 2 - pow((2 - x), curve);
++	val = 2 - pow((double)(2.0 - x), (double)curve);
+     
+     val = val / 2.0;
+     

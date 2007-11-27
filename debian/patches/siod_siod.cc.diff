@@ -1,0 +1,11 @@
+--- speech-tools-1.2.3.orig/siod/siod.cc
++++ speech-tools-1.2.3/siod/siod.cc
+@@ -38,7 +38,7 @@
+ 
+ extern "C" const char * repl_prompt;
+ 
+-Declare_TStringHash_T(EST_Regex *, hash_string_regex)
++Declare_TStringHash_Base_T(EST_Regex *, NULL, NULL, hash_string_regex)
+ 
+ #if defined(INSTANTIATE_TEMPLATES)
+ #include "../base_class/EST_THash.cc"

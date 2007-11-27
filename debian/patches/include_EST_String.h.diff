@@ -1,0 +1,16 @@
+Index: b/include/EST_String.h
+===================================================================
+--- a/include/EST_String.h
++++ b/include/EST_String.h
+@@ -67,6 +67,11 @@
+   * @version $Id: EST_String.h,v 1.6 2006/07/08 13:03:36 awb Exp $
+   */
+ 
++class EST_String;
++EST_String operator + (const EST_String &a, const EST_String &b);
++EST_String operator + (const char *a, const EST_String &b);
++EST_String operator + (const EST_String &a, const char *b);
++
+ class EST_String {
+ 
+     /** For better libg++ compatibility. 

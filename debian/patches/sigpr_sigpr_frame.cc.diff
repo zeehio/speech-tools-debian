@@ -1,0 +1,11 @@
+--- speech-tools-1.2.3.orig/sigpr/sigpr_frame.cc
++++ speech-tools-1.2.3/sigpr/sigpr_frame.cc
+@@ -499,7 +499,7 @@
+ {
+     power = 0.0;
+     for (int i = 0; i < frame.length(); i++)
+-	power += pow(frame(i), 2.0);
++	power += pow(frame(i), (float)2.0);
+ 
+     power /= frame.length();
+ }

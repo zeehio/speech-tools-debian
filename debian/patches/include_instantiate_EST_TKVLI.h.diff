@@ -1,0 +1,35 @@
+--- speech-tools-1.2.3.orig/include/instantiate/EST_TKVLI.h
++++ speech-tools-1.2.3/include/instantiate/EST_TKVLI.h
+@@ -71,8 +71,8 @@
+ 	static VAL TAG##_kv_def_val_s; \
+ 	static KEY TAG##_kv_def_key_s; \
+ 	\
+-	VAL *EST_TKVL< KEY, VAL >::default_val=&TAG##_kv_def_val_s; \
+-	KEY *EST_TKVL< KEY, VAL >::default_key=&TAG##_kv_def_key_s; \
++	template <> VAL *EST_TKVL< KEY, VAL >::default_val=&TAG##_kv_def_val_s; \
++	template <> KEY *EST_TKVL< KEY, VAL >::default_key=&TAG##_kv_def_key_s; \
+ 	\
+ 	Declare_TList_N(KVI_ ## TAG ## _t, MaxFree)
+ #define Declare_KVL_T(KEY, VAL, TAG) \
+@@ -85,8 +85,8 @@
+ 	static VAL TAG##_kv_def_val_s=DEFV; \
+ 	static KEY TAG##_kv_def_key_s=DEFK; \
+ 	\
+-	VAL *EST_TKVL< KEY, VAL >::default_val=&TAG##_kv_def_val_s; \
+-	KEY *EST_TKVL< KEY, VAL >::default_key=&TAG##_kv_def_key_s; \
++	template <> VAL *EST_TKVL< KEY, VAL >::default_val=&TAG##_kv_def_val_s; \
++	template <> KEY *EST_TKVL< KEY, VAL >::default_key=&TAG##_kv_def_key_s; \
+ 	\
+ 	Declare_TList_N(KVI_ ## TAG ## _t, MaxFree)
+ #define Declare_KVL_Base_T(KEY, VAL, DEFV, DEFK, TAG) \
+@@ -99,8 +99,8 @@
+ 	static VAL TAG##_kv_def_val_s(DEFV); \
+ 	static KEY TAG##_kv_def_key_s(DEFK); \
+ 	\
+-	VAL *EST_TKVL< KEY, VAL >::default_val=&TAG##_kv_def_val_s; \
+-	KEY *EST_TKVL< KEY, VAL >::default_key=&TAG##_kv_def_key_s; \
++	template <> VAL *EST_TKVL< KEY, VAL >::default_val=&TAG##_kv_def_val_s; \
++	template <> KEY *EST_TKVL< KEY, VAL >::default_key=&TAG##_kv_def_key_s; \
+ 	\
+ 	Declare_TList_N(KVI_ ## TAG ## _t, MaxFree)
+ #define Declare_KVL_Class_T(KEY, VAL, DEFV, DEFK,TAG) \

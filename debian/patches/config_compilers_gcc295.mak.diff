@@ -1,0 +1,52 @@
+--- speech-tools-1.2.3.orig/config/compilers/gcc295.mak
++++ speech-tools-1.2.3/config/compilers/gcc295.mak
+@@ -34,23 +34,44 @@
+  ##                 Author: Alan W Black (awb@cs.cmu.edu)                 ##
+  ##                   Date: Thu Sept 2 1999                               ##
+  ## --------------------------------------------------------------------  ##
+- ## Settings for GCC-2.95.1                                               ##
++ ## Settings for GCC-2.95.2                                               ##
+  ##                                                                       ##
+  ###########################################################################
+ 
+ include $(EST)/config/compilers/gcc_defaults.mak
+ 
+-COMPILER_DESC=FSF gcc2.95.1
++COMPILER_DESC=FSF gcc2.95.2
+ 
+ ifndef GCC295
+     GCC295 = gcc
+ endif
+ 
+ CC= $(GCC295)
+-CXX = $(GCC295)
++CXX = g++
+ 
+-CXXFLAGS  +=  -fguiding-decls
++# We do not actually need -fguiding-decls, because the code is in fact
++# correct despite the bogus in-class declarations of templated ostream
++# operator functions.  (See EST_TList.h, EST_TKVL.h, etc...)
++#
++# All the header files that contain these bogus declarations also
++# contain correct out-of-class, templated declarations for the
++# functions in question (they have to, otherwise the code simply
++# wouldn't link without -fguiding-decls).
++#
++# GCC 2.95 "helpfully" (yeah right) produces unbelievably verbose
++# warnings for this by default.  This makes it STFU, which is what we
++# want, since guiding declarations are almost certainly still required
++# by inferior compilers.
++
++WARN_CXXFLAGS += -Wno-non-template-friend
+ 
+ STATIC_LINKFLAGS = -Dstatic
+ 
+-COMPILERLIBS= $(COMPILER_LIBS_DIR:%=-L%) -lstdc++
++COMPILERLIBS= $(COMPILER_LIBS_DIR:%=-L%)
++
++ifndef GCC295_MAKE_SHARED_LIB
++    MAKE_SHARED_LIB = gcc -shared -fno-shared-data -o XXX -Wl,-soname -Wl,YYY
++else
++    MAKE_SHARED_LIB = $(GCC295_MAKE_SHARED_LIB)
++endif
++

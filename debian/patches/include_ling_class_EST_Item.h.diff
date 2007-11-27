@@ -1,0 +1,12 @@
+--- speech-tools-1.2.3.orig/include/ling_class/EST_Item.h
++++ speech-tools-1.2.3/include/ling_class/EST_Item.h
+@@ -79,6 +79,9 @@
+ 
+ */
+ 
++class EST_Item;
++int same_item(const EST_Item *l1,const EST_Item *l2);
++
+ class EST_Item 
+ {
+   private:

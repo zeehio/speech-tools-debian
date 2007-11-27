@@ -1,0 +1,1779 @@
+Index: b/testsuite/matrix_example.cc
+===================================================================
+--- a/testsuite/matrix_example.cc
++++ b/testsuite/matrix_example.cc
+@@ -49,7 +49,7 @@
+ //@{
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ 
+ //@{ code
+ 
+Index: b/testsuite/xml_regression.cc
+===================================================================
+--- a/testsuite/xml_regression.cc
++++ b/testsuite/xml_regression.cc
+@@ -39,7 +39,7 @@
+ 
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ 
+ 
+ int main(void)
+Index: b/include/EST_Complex.h
+===================================================================
+--- a/include/EST_Complex.h
++++ b/include/EST_Complex.h
+@@ -39,7 +39,7 @@
+ 
+ #ifndef __EST_COMPLEX_H__
+ #define __EST_COMPLEX_H__
+-
++using namespace std;
+ #include "EST_iostream.h"
+ #include <math.h>
+ 
+Index: b/testsuite/handle_regression.cc
+===================================================================
+--- a/testsuite/handle_regression.cc
++++ b/testsuite/handle_regression.cc
+@@ -41,7 +41,7 @@
+ 
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_THandle.h"
+ #include "EST_String.h"
+ 
+Index: b/stats/kalman_filter/EST_kalman.cc
+===================================================================
+--- a/stats/kalman_filter/EST_kalman.cc
++++ b/stats/kalman_filter/EST_kalman.cc
+@@ -39,7 +39,7 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <fstream.h>
++#include <fstream>
+ #include "EST.h"
+ #include "EST_kalman.h"
+ 
+Index: b/base_class/EST_DMatrix.cc
+===================================================================
+--- a/base_class/EST_DMatrix.cc
++++ b/base_class/EST_DMatrix.cc
+@@ -40,7 +40,7 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <fstream.h>
++#include <fstream>
+ #include <math.h>
+ #include <limits.h>
+ #include "EST_String.h"
+Index: b/base_class/EST_FMatrix.cc
+===================================================================
+--- a/base_class/EST_FMatrix.cc
++++ b/base_class/EST_FMatrix.cc
+@@ -39,7 +39,7 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <fstream.h>
++#include <fstream>
+ #include <math.h>
+ #include <limits.h>
+ #include "EST_String.h"
+Index: b/base_class/EST_IMatrix.cc
+===================================================================
+--- a/base_class/EST_IMatrix.cc
++++ b/base_class/EST_IMatrix.cc
+@@ -39,7 +39,7 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <fstream.h>
++#include <fstream>
+ #include <math.h>
+ #include <limits.h>
+ #include "EST_String.h"
+Index: b/base_class/EST_SMatrix.cc
+===================================================================
+--- a/base_class/EST_SMatrix.cc
++++ b/base_class/EST_SMatrix.cc
+@@ -39,7 +39,7 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <fstream.h>
++#include <fstream>
+ #include <math.h>
+ #include <limits.h>
+ #include "EST_String.h"
+Index: b/include/EST_model_types.h
+===================================================================
+--- a/include/EST_model_types.h
++++ b/include/EST_model_types.h
+@@ -39,7 +39,7 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <fstream.h>
++#include <fstream>
+ #include "EST.h"
+ #include "EST_Handleable.h"
+ #include "EST_THandle.h"
+Index: b/include/win32/EST_iostream_win32.h
+===================================================================
+--- a/include/win32/EST_iostream_win32.h
++++ b/include/win32/EST_iostream_win32.h
+@@ -43,7 +43,7 @@
+ #if !defined(__EST_IOSTREAM_WIN32_H__)
+ #    define __EST_IOSTREAM_WIN32_H__ 1
+ 
+-#include <iostream.h>
++#include <iostream>
+ 
+ #undef read
+ #undef write
+Index: b/testsuite/complex_example.cc
+===================================================================
+--- a/testsuite/complex_example.cc
++++ b/testsuite/complex_example.cc
+@@ -35,7 +35,7 @@
+ /************************************************************************/
+ 
+ #include "EST_Complex.h"
+-#include <iostream.h>
++#include <iostream>
+ #include <stdio.h>
+ 
+ int main()
+Index: b/testsuite/handle_example.cc
+===================================================================
+--- a/testsuite/handle_example.cc
++++ b/testsuite/handle_example.cc
+@@ -41,8 +41,8 @@
+ 
+ 
+ #include <stdlib.h>
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include "EST_Handleable.h"
+ #include "EST_THandle.h"
+ #include "EST_TBox.h"
+Index: b/testsuite/complex_regression.cc
+===================================================================
+--- a/testsuite/complex_regression.cc
++++ b/testsuite/complex_regression.cc
+@@ -35,7 +35,7 @@
+ /************************************************************************/
+ 
+ #include "EST_Complex.h"
+-#include <iostream.h>
++#include <iostream>
+ #include <stdio.h>
+ 
+ int main()
+Index: b/ling_class/EST_Item_Content.cc
+===================================================================
+--- a/ling_class/EST_Item_Content.cc
++++ b/ling_class/EST_Item_Content.cc
+@@ -40,7 +40,7 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <fstream.h>
++#include <fstream>
+ #include "ling_class/EST_Item_Content.h"
+ #include "ling_class/EST_Item.h"
+ #include "EST_error.h"
+Index: b/testsuite/deq_example.cc
+===================================================================
+--- a/testsuite/deq_example.cc
++++ b/testsuite/deq_example.cc
+@@ -37,7 +37,7 @@
+  /*************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_TDeque.h"
+ #include "EST_String.h"
+ 
+Index: b/testsuite/track_example.cc
+===================================================================
+--- a/testsuite/track_example.cc
++++ b/testsuite/track_example.cc
+@@ -39,7 +39,7 @@
+  /*************************************************************************/
+ 
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include <stdlib.h>
+ #include "EST_Track.h"
+ #include "EST_Wave.h"
+Index: b/base_class/EST_FeatureData.cc
+===================================================================
+--- a/base_class/EST_FeatureData.cc
++++ b/base_class/EST_FeatureData.cc
+@@ -45,8 +45,8 @@
+ #include "EST_Token.h"
+ #include "EST_FileType.h"
+ #include "EST_error.h"
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ 
+ #include "EST_THash.h"
+ 
+Index: b/base_class/string/EST_String.cc
+===================================================================
+--- a/base_class/string/EST_String.cc
++++ b/base_class/string/EST_String.cc
+@@ -43,7 +43,7 @@
+  /*************************************************************************/
+ 
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include <string.h>
+ #include <stdio.h>
+ #include <ctype.h>
+Index: b/base_class/string/EST_Chunk.cc
+===================================================================
+--- a/base_class/string/EST_Chunk.cc
++++ b/base_class/string/EST_Chunk.cc
+@@ -41,7 +41,7 @@
+  /************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include <string.h>
+ #include "EST_Chunk.h"
+ 
+Index: b/testsuite/deq_regression.cc
+===================================================================
+--- a/testsuite/deq_regression.cc
++++ b/testsuite/deq_regression.cc
+@@ -37,7 +37,7 @@
+  /*************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_TDeque.h"
+ #include "EST_String.h"
+ 
+Index: b/testsuite/list_regression.cc
+===================================================================
+--- a/testsuite/list_regression.cc
++++ b/testsuite/list_regression.cc
+@@ -37,7 +37,7 @@
+  /*************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_TList.h"
+ #include "EST_String.h"
+ 
+Index: b/testsuite/track_regression.cc
+===================================================================
+--- a/testsuite/track_regression.cc
++++ b/testsuite/track_regression.cc
+@@ -39,7 +39,7 @@
+  /*************************************************************************/
+ 
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include <stdlib.h>
+ #include "EST_TrackMap.h"
+ #include "EST_Track.h"
+Index: b/utils/util_io.cc
+===================================================================
+--- a/utils/util_io.cc
++++ b/utils/util_io.cc
+@@ -41,8 +41,8 @@
+ #include <ctype.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include "EST_types.h"
+ #include "EST_String.h"
+ #include "EST_Pathname.h"
+Index: b/main/sigfilter_main.cc
+===================================================================
+--- a/main/sigfilter_main.cc
++++ b/main/sigfilter_main.cc
+@@ -38,7 +38,7 @@
+ /*=======================================================================*/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include <math.h>
+ #include "EST_Wave.h"
+ #include "EST_cmd_line.h"
+Index: b/testsuite/named_enum_example.cc
+===================================================================
+--- a/testsuite/named_enum_example.cc
++++ b/testsuite/named_enum_example.cc
+@@ -39,7 +39,7 @@
+  /************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_TNamedEnum.h"
+ 
+ #if defined(DATAC)
+Index: b/testsuite/matrix_regression.cc
+===================================================================
+--- a/testsuite/matrix_regression.cc
++++ b/testsuite/matrix_regression.cc
+@@ -37,7 +37,7 @@
+  /*************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_TMatrix.h"
+ #include "EST_String.h"
+ 
+Index: b/stats/wagon/wagon_aux.cc
+===================================================================
+--- a/stats/wagon/wagon_aux.cc
++++ b/stats/wagon/wagon_aux.cc
+@@ -38,7 +38,7 @@
+ /*=======================================================================*/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include <string.h>
+ #include "EST_unix.h"
+ #include "EST_cutils.h"
+Index: b/main/design_filter_main.cc
+===================================================================
+--- a/main/design_filter_main.cc
++++ b/main/design_filter_main.cc
+@@ -38,7 +38,7 @@
+ /*=======================================================================*/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include <math.h>
+ #include "EST_Wave.h"
+ #include "EST_cmd_line.h"
+Index: b/testsuite/list_example.cc
+===================================================================
+--- a/testsuite/list_example.cc
++++ b/testsuite/list_example.cc
+@@ -37,7 +37,7 @@
+  /*************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_bool.h"
+ #include "EST_TList.h"
+ #include "EST_String.h"
+Index: b/testsuite/kvl_example.cc
+===================================================================
+--- a/testsuite/kvl_example.cc
++++ b/testsuite/kvl_example.cc
+@@ -37,7 +37,7 @@
+  /*************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_TKVL.h"
+ #include "EST_Option.h"
+ #include "EST_util_class.h"
+Index: b/ling_class/EST_UtteranceFile.cc
+===================================================================
+--- a/ling_class/EST_UtteranceFile.cc
++++ b/ling_class/EST_UtteranceFile.cc
+@@ -39,8 +39,8 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "EST_string_aux.h"
+ #include "EST_FileType.h"
+ #include "EST_Token.h"
+Index: b/include/EST_lattice_io.h
+===================================================================
+--- a/include/EST_lattice_io.h
++++ b/include/EST_lattice_io.h
+@@ -40,8 +40,8 @@
+ #ifndef __EST_LATTICE_IO_H__
+ #define __EST_LATTICE_IO_H__
+ 
+-#include <String.h>
+-#include <ostream.h>
++#include <String>
++#include <ostream>
+ #include "sp_common_types.h"
+ #include "wp_grammar.h"
+ #include "EST_lattice.h"
+Index: b/base_class/EST_svec_aux.cc
+===================================================================
+--- a/base_class/EST_svec_aux.cc
++++ b/base_class/EST_svec_aux.cc
+@@ -40,8 +40,8 @@
+ #include <ctype.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include "EST_types.h"
+ #include "EST_String.h"
+ #include "EST_Pathname.h"
+Index: b/testsuite/kvl_regression.cc
+===================================================================
+--- a/testsuite/kvl_regression.cc
++++ b/testsuite/kvl_regression.cc
+@@ -37,7 +37,7 @@
+  /*************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_TKVL.h"
+ #include "EST_Option.h"
+ #include "EST_util_class.h"
+Index: b/base_class/EST_ilist_aux.cc
+===================================================================
+--- a/base_class/EST_ilist_aux.cc
++++ b/base_class/EST_ilist_aux.cc
+@@ -41,8 +41,8 @@
+ #include <ctype.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include "EST_types.h"
+ #include "EST_String.h"
+ #include "EST_Pathname.h"
+Index: b/base_class/EST_slist_aux.cc
+===================================================================
+--- a/base_class/EST_slist_aux.cc
++++ b/base_class/EST_slist_aux.cc
+@@ -41,8 +41,8 @@
+ #include <ctype.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include "EST_types.h"
+ #include "EST_String.h"
+ #include "EST_Pathname.h"
+Index: b/include/EST_UList.h
+===================================================================
+--- a/include/EST_UList.h
++++ b/include/EST_UList.h
+@@ -41,10 +41,12 @@
+ #ifndef __EST_ULIST_H__
+ #define __EST_ULIST_H__
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_common.h"
+ #include "EST_String.h"
+ 
++using namespace std;
++
+ class EST_UItem {
+ public:
+     void init() { n = NULL; p = NULL;}
+Index: b/testsuite/xml_example.cc
+===================================================================
+--- a/testsuite/xml_example.cc
++++ b/testsuite/xml_example.cc
+@@ -38,8 +38,8 @@
+  /*************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include "rxp/XML_Parser.h"
+ 
+ #if defined(DATAC)
+Index: b/sigpr/pda/smooth_pda.cc
+===================================================================
+--- a/sigpr/pda/smooth_pda.cc
++++ b/sigpr/pda/smooth_pda.cc
+@@ -37,7 +37,7 @@
+ /*=======================================================================*/
+ /*#include <math.h>
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include <fstream.h>*/
+ //#include "sigpr/EST_pda.h"
+ #include "EST_Track.h"
+Index: b/ling_class/relation_io.cc
+===================================================================
+--- a/ling_class/relation_io.cc
++++ b/ling_class/relation_io.cc
+@@ -38,7 +38,7 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <fstream.h>
++#include <fstream>
+ #include "EST_unix.h"
+ #include "EST_types.h"
+ #include "ling_class/EST_Relation.h"
+Index: b/testsuite/string_regression.cc
+===================================================================
+--- a/testsuite/string_regression.cc
++++ b/testsuite/string_regression.cc
+@@ -34,7 +34,7 @@
+ /*                   Date: May 1997                                     */
+ /************************************************************************/
+ #include "EST_String.h"
+-#include <iostream.h>
++#include <iostream>
+ 
+ int main()
+ 
+Index: b/base_class/EST_TVector.cc
+===================================================================
+--- a/base_class/EST_TVector.cc
++++ b/base_class/EST_TVector.cc
+@@ -39,8 +39,8 @@
+  /*************************************************************************/
+ 
+ 
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "EST_TVector.h"
+ #include "EST_matrix_support.h"
+ #include "EST_cutils.h"
+Index: b/main/align_main.cc
+===================================================================
+--- a/main/align_main.cc
++++ b/main/align_main.cc
+@@ -40,8 +40,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST.h"
+ #include "EST_WFST.h"
+Index: b/utils/EST_FringeServer.cc
+===================================================================
+--- a/utils/EST_FringeServer.cc
++++ b/utils/EST_FringeServer.cc
+@@ -47,8 +47,10 @@
+ #include "EST_Pathname.h"
+ #include "EST_error.h"
+ #include "EST_Token.h"
+-#include "iomanip.h"
+-#include "iostream.h"
++#include <iomanip>
++#include <iostream>
++
++using namespace std;
+ 
+ static EST_Regex ipnum("[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+");
+ 
+Index: b/grammar/ngram/EST_PST.cc
+===================================================================
+--- a/grammar/ngram/EST_PST.cc
++++ b/grammar/ngram/EST_PST.cc
+@@ -39,8 +39,8 @@
+ /*=======================================================================*/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST_String.h"
+ #include "EST_types.h"
+Index: b/speech_class/EST_Wave.cc
+===================================================================
+--- a/speech_class/EST_Wave.cc
++++ b/speech_class/EST_Wave.cc
+@@ -37,7 +37,7 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <math.h>
+Index: b/testsuite/string_example.cc
+===================================================================
+--- a/testsuite/string_example.cc
++++ b/testsuite/string_example.cc
+@@ -34,7 +34,7 @@
+ /*                   Date: May 1997                                     */
+ /************************************************************************/
+ #include "EST_String.h"
+-#include <iostream.h>
++#include <iostream>
+ #include <stdio.h>
+ 
+ int main()
+Index: b/main/scfg_make_main.cc
+===================================================================
+--- a/main/scfg_make_main.cc
++++ b/main/scfg_make_main.cc
+@@ -41,8 +41,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST.h"
+ #include "EST_SCFG.h"
+Index: b/main/scfg_test_main.cc
+===================================================================
+--- a/main/scfg_test_main.cc
++++ b/main/scfg_test_main.cc
+@@ -41,8 +41,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST.h"
+ #include "EST_SCFG.h"
+Index: b/main/scfg_parse_main.cc
+===================================================================
+--- a/main/scfg_parse_main.cc
++++ b/main/scfg_parse_main.cc
+@@ -39,8 +39,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST.h"
+ #include "EST_SCFG.h"
+Index: b/main/wfst_build_main.cc
+===================================================================
+--- a/main/wfst_build_main.cc
++++ b/main/wfst_build_main.cc
+@@ -51,8 +51,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST.h"
+ #include "EST_WFST.h"
+Index: b/main/pitchmark_main.cc
+===================================================================
+--- a/main/pitchmark_main.cc
++++ b/main/pitchmark_main.cc
+@@ -37,8 +37,8 @@
+ /*************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "EST_unix.h"
+ #include "EST_cmd_line_options.h"
+ #include "EST_cmd_line.h"
+Index: b/main/wfst_train_main.cc
+===================================================================
+--- a/main/wfst_train_main.cc
++++ b/main/wfst_train_main.cc
+@@ -38,8 +38,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST.h"
+ #include "EST_simplestats.h"
+Index: b/main/scfg_train_main.cc
+===================================================================
+--- a/main/scfg_train_main.cc
++++ b/main/scfg_train_main.cc
+@@ -42,8 +42,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST_cmd_line.h"
+ #include "EST_SCFG.h"
+Index: b/include/EST_TTimeIndex.h
+===================================================================
+--- a/include/EST_TTimeIndex.h
++++ b/include/EST_TTimeIndex.h
+@@ -35,7 +35,9 @@
+ #ifndef __EST_TTIMEINDEX_H__
+ #define __EST_TTIMEINDEX_H__
+ 
+-#include <iostream.h>
++#include <iostream>
++
++using namespace std;
+ 
+ /** A time index for a container. The container defines how to get an
+   * object and so on, this lets you find a point in the container not
+Index: b/grammar/wfst/EST_WFST.cc
+===================================================================
+--- a/grammar/wfst/EST_WFST.cc
++++ b/grammar/wfst/EST_WFST.cc
+@@ -42,7 +42,7 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_Pathname.h"
+ #include "EST_cutils.h"
+ #include "EST_Token.h"
+Index: b/testsuite/named_enum_regression.cc
+===================================================================
+--- a/testsuite/named_enum_regression.cc
++++ b/testsuite/named_enum_regression.cc
+@@ -38,7 +38,7 @@
+  /*                                                                      */
+  /************************************************************************/
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_TNamedEnum.h"
+ #include "EST_String.h"
+ 
+Index: b/main/ch_wave_main.cc
+===================================================================
+--- a/main/ch_wave_main.cc
++++ b/main/ch_wave_main.cc
+@@ -37,7 +37,7 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include <math.h>
+ #include "EST_Wave.h"
+ #include "EST_cmd_line.h"
+Index: b/base_class/EST_Token.cc
+===================================================================
+--- a/base_class/EST_Token.cc
++++ b/base_class/EST_Token.cc
+@@ -39,7 +39,7 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ #include <stdio.h>
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_unix.h"
+ #include <stdlib.h>
+ #include <limits.h>
+Index: b/grammar/ngram/EST_lattice_io.cc
+===================================================================
+--- a/grammar/ngram/EST_lattice_io.cc
++++ b/grammar/ngram/EST_lattice_io.cc
+@@ -37,7 +37,7 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ 
+-#include <fstream.h>
++#include <fstream>
+ #include <stdlib.h>
+ #include "EST_lattice.h"
+ #include "EST_types.h"
+Index: b/ling_class/EST_relation_track.cc
+===================================================================
+--- a/ling_class/EST_relation_track.cc
++++ b/ling_class/EST_relation_track.cc
+@@ -38,8 +38,8 @@
+ /*=======================================================================*/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <math.h>
+ #include "EST_types.h"
+ #include "ling_class/EST_Relation.h"
+Index: b/include/EST_TList.h
+===================================================================
+--- a/include/EST_TList.h
++++ b/include/EST_TList.h
+@@ -43,7 +43,7 @@
+ #ifndef __Tlist_H__
+ #define __Tlist_H__
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_common.h"
+ #include "EST_UList.h"
+ #include "EST_TSortable.h"
+@@ -51,6 +51,8 @@
+ 
+ #include "instantiate/EST_TListI.h"
+ 
++using namespace std;
++
+ class EST_String;
+ 
+ template<class T> class EST_TList;
+Index: b/base_class/EST_matrix_support.cc
+===================================================================
+--- a/base_class/EST_matrix_support.cc
++++ b/base_class/EST_matrix_support.cc
+@@ -38,7 +38,7 @@
+  /*                                                                       */
+  /*************************************************************************/
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_TVector.h"
+ #include "EST_matrix_support.h"
+ #include "EST_bool.h"
+Index: b/ling_class/EST_Utterance.cc
+===================================================================
+--- a/ling_class/EST_Utterance.cc
++++ b/ling_class/EST_Utterance.cc
+@@ -38,8 +38,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "EST_error.h"
+ #include "EST_string_aux.h"
+ #include "ling_class/EST_Utterance.h"
+Index: b/ling_class/EST_Relation.cc
+===================================================================
+--- a/ling_class/EST_Relation.cc
++++ b/ling_class/EST_Relation.cc
+@@ -38,8 +38,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "ling_class/EST_Relation.h"
+ #include "ling_class/EST_Item.h"
+ #include "relation_io.h"
+Index: b/include/EST_TVector.h
+===================================================================
+--- a/include/EST_TVector.h
++++ b/include/EST_TVector.h
+@@ -40,12 +40,14 @@
+ #ifndef __EST_TVector_H__
+ #define __EST_TVector_H__
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_bool.h"
+ #include "EST_rw_status.h"
+ 
+ #include "instantiate/EST_TVectorI.h"
+ 
++using namespace std;
++
+ template<class T> class EST_TMatrix;
+ template<class T> class EST_TList;
+ class EST_String;
+Index: b/speech_class/EST_Track.cc
+===================================================================
+--- a/speech_class/EST_Track.cc
++++ b/speech_class/EST_Track.cc
+@@ -38,8 +38,8 @@
+ /*                                                                       */
+ /*************************************************************************/
+ 
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include <math.h>
+ #include "EST_unix.h"
+ #include "EST_Track.h"
+Index: b/ling_class/EST_Item.cc
+===================================================================
+--- a/ling_class/EST_Item.cc
++++ b/ling_class/EST_Item.cc
+@@ -49,8 +49,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "ling_class/EST_Item.h"
+ #include "ling_class/EST_Relation.h"
+ #include "ling_class/EST_Utterance.h"
+Index: b/ling_class/item_aux.cc
+===================================================================
+--- a/ling_class/item_aux.cc
++++ b/ling_class/item_aux.cc
+@@ -38,8 +38,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "ling_class/EST_Item.h"
+ #include "ling_class/EST_Item_Content.h"
+ #include "ling_class/EST_Relation.h"
+Index: b/sigpr/EST_Window.cc
+===================================================================
+--- a/sigpr/EST_Window.cc
++++ b/sigpr/EST_Window.cc
+@@ -37,8 +37,8 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ 
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "EST_system.h"
+ //#include "EST_sigpr.h"
+ #include "sigpr/EST_Window.h"
+Index: b/main/ols_main.cc
+===================================================================
+--- a/main/ols_main.cc
++++ b/main/ols_main.cc
+@@ -37,8 +37,8 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST_Wagon.h"
+ #include "EST_multistats.h"
+Index: b/main/wagon_main.cc
+===================================================================
+--- a/main/wagon_main.cc
++++ b/main/wagon_main.cc
+@@ -41,8 +41,8 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST_Wagon.h"
+ #include "EST_cmd_line.h"
+Index: b/grammar/wfst/wfst_aux.cc
+===================================================================
+--- a/grammar/wfst/wfst_aux.cc
++++ b/grammar/wfst/wfst_aux.cc
+@@ -38,7 +38,7 @@
+ /* determinization of WFST.                                              */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_WFST.h"
+ #include "wfst_aux.h"
+ 
+Index: b/main/ols_test_main.cc
+===================================================================
+--- a/main/ols_test_main.cc
++++ b/main/ols_test_main.cc
+@@ -37,8 +37,8 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST_Wagon.h"
+ #include "EST_cutils.h"
+Index: b/grammar/scfg/EST_SCFG.cc
+===================================================================
+--- a/grammar/scfg/EST_SCFG.cc
++++ b/grammar/scfg/EST_SCFG.cc
+@@ -37,7 +37,7 @@
+ /* A class for representing Stochastic Context Free Grammars             */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_Pathname.h"
+ #include "EST_SCFG.h"
+ 
+Index: b/grammar/wfst/kkcompile.cc
+===================================================================
+--- a/grammar/wfst/kkcompile.cc
++++ b/grammar/wfst/kkcompile.cc
+@@ -39,7 +39,7 @@
+ /* make real WFSTs).                                                     */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_WFST.h"
+ #include "EST_cutils.h"
+ 
+Index: b/grammar/wfst/rgcompile.cc
+===================================================================
+--- a/grammar/wfst/rgcompile.cc
++++ b/grammar/wfst/rgcompile.cc
+@@ -42,7 +42,7 @@
+ /* Black, International Workshop of Parsing Technologies, CMU 89         */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_cutils.h"
+ #include "EST_WFST.h"
+ 
+Index: b/grammar/wfst/ltscompile.cc
+===================================================================
+--- a/grammar/wfst/ltscompile.cc
++++ b/grammar/wfst/ltscompile.cc
+@@ -40,7 +40,7 @@
+ /* standard form of LTS rules used in Festival.                          */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_cutils.h"
+ #include "EST_WFST.h"
+ 
+Index: b/grammar/wfst/wfst_regex.cc
+===================================================================
+--- a/grammar/wfst/wfst_regex.cc
++++ b/grammar/wfst/wfst_regex.cc
+@@ -37,7 +37,7 @@
+ /* WFST functions for building from REGEXs                               */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_cutils.h"
+ #include "EST_WFST.h"
+ 
+Index: b/main/wagon_test_main.cc
+===================================================================
+--- a/main/wagon_test_main.cc
++++ b/main/wagon_test_main.cc
+@@ -38,8 +38,8 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST_Wagon.h"
+ #include "EST_cutils.h"
+Index: b/stats/wagon/wagonint.cc
+===================================================================
+--- a/stats/wagon/wagonint.cc
++++ b/stats/wagon/wagonint.cc
+@@ -37,8 +37,8 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST_cutils.h"
+ #include "EST_Token.h"
+Index: b/ling_class/EST_relation_compare.cc
+===================================================================
+--- a/ling_class/EST_relation_compare.cc
++++ b/ling_class/EST_relation_compare.cc
+@@ -37,8 +37,8 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ 
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <math.h>
+ #include "EST_types.h"
+ #include "EST_FMatrix.h"
+Index: b/grammar/ngram/freqsmooth.cc
+===================================================================
+--- a/grammar/ngram/freqsmooth.cc
++++ b/grammar/ngram/freqsmooth.cc
+@@ -42,7 +42,7 @@
+ /*        F(ngram) = !n-1gram|*(P(n-1gram))                              */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include <string.h>
+ #include <math.h>
+ #include <limits.h>
+Index: b/main/pda_main.cc
+===================================================================
+--- a/main/pda_main.cc
++++ b/main/pda_main.cc
+@@ -36,7 +36,7 @@
+ /*             Pitch Detection Algorithm Main routine                    */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <fstream.h>
++#include <fstream>
+ #include "EST.h"
+ #include "sigpr/EST_sigpr_utt.h"
+ #include "EST_cmd_line_options.h"
+Index: b/siod/siod_est.cc
+===================================================================
+--- a/siod/siod_est.cc
++++ b/siod/siod_est.cc
+@@ -42,7 +42,7 @@
+ /* Stream_Items, Waves and Tracks in your binary                         */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include "siod.h"
+ #include "ling_class/EST_Utterance.h"
+ #include "ling_class/EST_Item.h"
+Index: b/grammar/wfst/tlcompile.cc
+===================================================================
+--- a/grammar/wfst/tlcompile.cc
++++ b/grammar/wfst/tlcompile.cc
+@@ -44,7 +44,7 @@
+ /* Black, International Workshop of Parsing Technologies, CMU 89         */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++// #include <iostream>
+ #include "EST_cutils.h"
+ #include "EST_THash.h"
+ #include "EST_WFST.h"
+Index: b/grammar/ngram/ngrammar_utils.cc
+===================================================================
+--- a/grammar/ngram/ngrammar_utils.cc
++++ b/grammar/ngram/ngrammar_utils.cc
+@@ -37,7 +37,7 @@
+ /* A rationalization of some of the general functions                    */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include <string.h>
+ #include "EST_String.h"
+ #include "EST_Token.h"
+Index: b/stats/EST_Discrete.cc
+===================================================================
+--- a/stats/EST_Discrete.cc
++++ b/stats/EST_Discrete.cc
+@@ -37,8 +37,8 @@
+ /* Discretes for mapping between alphabets and indexes                   */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <string.h>
+Index: b/grammar/wfst/wfst_transduce.cc
+===================================================================
+--- a/grammar/wfst/wfst_transduce.cc
++++ b/grammar/wfst/wfst_transduce.cc
+@@ -37,7 +37,7 @@
+ /* Transduction using a WFST                                             */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
++#include <iostream>
+ #include "EST_WFST.h"
+ 
+ /** An internal class in transduction of WFSTs holding intermediate
+Index: b/main/wfst_run_main.cc
+===================================================================
+--- a/main/wfst_run_main.cc
++++ b/main/wfst_run_main.cc
+@@ -38,8 +38,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include "EST.h"
+ #include "EST_simplestats.h"
+@@ -213,7 +213,7 @@
+ 	   (int)R.samples(),R.mean()*100,(1-R.mean())*100);
+     if (al.present("-perplexity"))
+     {
+-	printf("perplexity is %f\n", pow(2.0,(-1 * (sumlogp/count))));
++	printf("perplexity is %f\n", pow((float)2.0,(-1 * (sumlogp/count))));
+     }
+ 
+     if (ofd != stdout)
+Index: b/ling_class/item_feats.cc
+===================================================================
+--- a/ling_class/item_feats.cc
++++ b/ling_class/item_feats.cc
+@@ -38,8 +38,8 @@
+ /*=======================================================================*/
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "EST_THash.h"
+ #include "ling_class/EST_Item.h"
+ #include "ling_class/EST_Item_Content.h"
+@@ -78,7 +78,7 @@
+    EST_String name = EST_FeatureFunctionContext::global->get_featfunc_name(func, found);
+ 
+    if (!found)
+-	EST_error("featfunc 0x%x has no name", (int)func);
++	EST_error("featfunc 0x%x has no name", (long)func);
+ 
+     return name;
+ }
+Index: b/stats/dynamic_program.cc
+===================================================================
+--- a/stats/dynamic_program.cc
++++ b/stats/dynamic_program.cc
+@@ -36,8 +36,8 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "EST_math.h"
+ #include "ling_class/EST_Utterance.h"
+ 
+Index: b/include/instantiate/EST_TListI.h
+===================================================================
+--- a/include/instantiate/EST_TListI.h
++++ b/include/instantiate/EST_TListI.h
+@@ -45,7 +45,7 @@
+ 
+ // Instantiation Macros
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include "instantiate/EST_TIteratorI.h"
+ 
+ #define Instantiate_TList_T_MIN(TYPE, TAG) \
+Index: b/stats/EST_DProbDist.cc
+===================================================================
+--- a/stats/EST_DProbDist.cc
++++ b/stats/EST_DProbDist.cc
+@@ -37,8 +37,8 @@
+ /* Simple statistics (for discrete probability distributions             */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <string.h>
+@@ -310,7 +310,7 @@
+     if (type == tprob_discrete)
+ 	return 0;
+     else
+-	return (int)scounts.list.head();
++	return (long)scounts.list.head();
+ }
+ 
+ int EST_DiscreteProbDistribution::item_end(int idx) const
+@@ -326,7 +326,7 @@
+     if (type == tprob_discrete)
+ 	return ++idx;
+     else
+-	return (int)next((EST_Litem *)idx);
++	return (long)next((EST_Litem *)idx);
+ }
+ 
+ const EST_String &EST_DiscreteProbDistribution::item_name(int idx) const
+Index: b/grammar/wfst/wfst_ops.cc
+===================================================================
+--- a/grammar/wfst/wfst_ops.cc
++++ b/grammar/wfst/wfst_ops.cc
+@@ -38,8 +38,8 @@
+ /*   union, composition                                                  */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
+-#include <stdlib.h>
++#include <iostream>
++#include <cstdlib>
+ #include "EST_WFST.h"
+ #include "wfst_aux.h"
+ #include "EST_String.h"
+Index: b/stats/EST_cluster.cc
+===================================================================
+--- a/stats/EST_cluster.cc
++++ b/stats/EST_cluster.cc
+@@ -37,11 +37,11 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ 
+-#include <stdlib.h>
++#include <cstdlib>
+ #include "EST_system.h"
+ #include "EST_FMatrix.h"
+ #include "EST_cluster.h"
+-#include <fstream.h>
++#include <fstream>
+ #include "EST_string_aux.h"
+ #include <float.h>
+ 
+Index: b/base_class/EST_TMatrix.cc
+===================================================================
+--- a/base_class/EST_TMatrix.cc
++++ b/base_class/EST_TMatrix.cc
+@@ -39,8 +39,8 @@
+  /*************************************************************************/
+ 
+ #include "EST_TMatrix.h"
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include "EST_bool.h"
+ #include "EST_matrix_support.h"
+ #include "EST_TVector.h"
+Index: b/base_class/EST_TNamedEnum.cc
+===================================================================
+--- a/base_class/EST_TNamedEnum.cc
++++ b/base_class/EST_TNamedEnum.cc
+@@ -40,7 +40,7 @@
+  /************************************************************************/
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
++#include <iostream>
+ #include <stdio.h>
+ #include "EST_walloc.h"
+ #include "EST_TNamedEnum.h"
+Index: b/base_class/EST_TSimpleMatrix.cc
+===================================================================
+--- a/base_class/EST_TSimpleMatrix.cc
++++ b/base_class/EST_TSimpleMatrix.cc
+@@ -42,10 +42,12 @@
+ 
+ #include "EST_TSimpleMatrix.h"
+ #include "EST_TVector.h"
+-#include <fstream.h>
+-#include <iostream.h>
++#include <fstream>
++#include <iostream>
+ #include "EST_cutils.h"
+ 
++using namespace std;
++
+ template<class T> 
+ void EST_TSimpleMatrix<T>::copy_data(const EST_TSimpleMatrix<T> &a)
+ {
+Index: b/base_class/EST_TSimpleVector.cc
+===================================================================
+--- a/base_class/EST_TSimpleVector.cc
++++ b/base_class/EST_TSimpleVector.cc
+@@ -42,7 +42,7 @@
+ 
+ #include "EST_TSimpleVector.h"
+ #include "EST_matrix_support.h"
+-#include <fstream.h>
++#include <fstream>
+ #include "EST_cutils.h"
+ 
+ template<class T> void EST_TSimpleVector<T>::copy(const EST_TSimpleVector<T> &a)
+Index: b/base_class/EST_Tvectlist.cc
+===================================================================
+--- a/base_class/EST_Tvectlist.cc
++++ b/base_class/EST_Tvectlist.cc
+@@ -37,7 +37,7 @@
+ /* only include this if you define both vectors and lists for the class  */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <fstream.h>
++#include <fstream>
+ #include "EST_TList.h"
+ #include "EST_TVector.h"
+ #include "EST_cutils.h"
+Index: b/grammar/wfst/wfst_train.cc
+===================================================================
+--- a/grammar/wfst/wfst_train.cc
++++ b/grammar/wfst/wfst_train.cc
+@@ -41,13 +41,15 @@
+ /* technique known as "maximum entropy"                                  */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
+-#include <stdlib.h>
++#include <iostream>
++#include <cstdlib>
+ #include "EST_WFST.h"
+ #include "wfst_aux.h"
+ #include "EST_Token.h"
+ #include "EST_simplestats.h"
+ 
++using namespace std;
++
+ VAL_REGISTER_TYPE_NODEL(trans,EST_WFST_Transition)
+ SIOD_REGISTER_CLASS(trans,EST_WFST_Transition)
+ VAL_REGISTER_CLASS(pdf,EST_DiscreteProbDistribution)
+Index: b/include/EST_THash.h
+===================================================================
+--- a/include/EST_THash.h
++++ b/include/EST_THash.h
+@@ -36,7 +36,10 @@
+ #ifndef __EST_THASH_H__
+ #define __EST_THASH_H__
+ 
+-#include <iostream.h>
++#include <iostream>
++
++using namespace std;
++
+ #include "EST_String.h"
+ #include "EST_system.h"
+ #include "EST_bool.h"
+Index: b/include/EST_TMatrix.h
+===================================================================
+--- a/include/EST_TMatrix.h
++++ b/include/EST_TMatrix.h
+@@ -41,7 +41,10 @@
+ #ifndef __TMatrix_H__
+ #define __TMatrix_H__
+ 
+-#include <iostream.h>
++#include <iostream>
++
++usiang namespace std;
++
+ #include "EST_rw_status.h"
+ #include "EST_TVector.h"
+ #include "instantiate/EST_TMatrixI.h"
+Index: b/ling_class/EST_relation_aux.cc
+===================================================================
+--- a/ling_class/EST_relation_aux.cc
++++ b/ling_class/EST_relation_aux.cc
+@@ -36,10 +36,13 @@
+ /*                  Relation class auxiliary routines                    */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
+-#include <math.h>
++#include <cstdlib>
++#include <iostream>
++#include <fstream>
++#include <cmath>
++
++using namespace std;
++
+ #include "EST_types.h"
+ #include "ling_class/EST_Relation.h"
+ #include "ling_class/EST_relation_aux.h"
+Index: b/speech_class/EST_TrackFile.cc
+===================================================================
+--- a/speech_class/EST_TrackFile.cc
++++ b/speech_class/EST_TrackFile.cc
+@@ -36,11 +36,11 @@
+ /*                   File I/O functions for EST_Track class              */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <fstream.h>
+-#include <iostream.h>
+-#include <stdlib.h>
+-#include <math.h>
+-#include <time.h>
++#include <fstream>
++#include <iostream>
++#include <cstdlib>
++#include <cmath>
++#include <ctime>
+ #include "EST_unix.h"
+ #include "EST_types.h"
+ #include "EST_Track.h"
+Index: b/speech_class/ssff.cc
+===================================================================
+--- a/speech_class/ssff.cc
++++ b/speech_class/ssff.cc
+@@ -37,11 +37,11 @@
+ /* used in emulabel                                                      */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <fstream.h>
+-#include <iostream.h>
+-#include <stdlib.h>
+-#include <math.h>
+-#include <time.h>
++#include <fstream>
++#include <iostream>
++#include <cstdlib>
++#include <cmath>
++#include <ctime>
+ #include "EST_unix.h"
+ #include "EST_types.h"
+ #include "EST_Track.h"
+Index: b/stats/wagon/dlist.cc
+===================================================================
+--- a/stats/wagon/dlist.cc
++++ b/stats/wagon/dlist.cc
+@@ -45,8 +45,8 @@
+ /*  1987                                                                 */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
+-#include <string.h>
++#include <iostream>
++#include <cstring>
+ #include "EST_Wagon.h"
+ #include "EST_FMatrix.h"
+ #include "EST_multistats.h"
+Index: b/stats/wagon/wagon.cc
+===================================================================
+--- a/stats/wagon/wagon.cc
++++ b/stats/wagon/wagon.cc
+@@ -42,10 +42,10 @@
+ /*                                                                       */
+ /*=======================================================================*/
+ 
+-#include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
+-#include <string.h>
++#include <cstdlib>
++#include <iostream>
++#include <fstream>
++#include <cstring>
+ #include "EST_Token.h"
+ #include "EST_FMatrix.h"
+ #include "EST_multistats.h"
+Index: b/testsuite/hash_example.cc
+===================================================================
+--- a/testsuite/hash_example.cc
++++ b/testsuite/hash_example.cc
+@@ -38,9 +38,9 @@
+  /*                                                                      */
+  /************************************************************************/
+ 
+-#include <stdlib.h>
+-#include <iostream.h>
+-#include <math.h>
++#include <cstdlib>
++#include <iostream>
++#include <cmath>
+ #include "EST_THash.h"
+ #include "EST_String.h"
+ 
+Index: b/testsuite/hash_regression.cc
+===================================================================
+--- a/testsuite/hash_regression.cc
++++ b/testsuite/hash_regression.cc
+@@ -39,8 +39,8 @@
+  /*                                                                      */
+  /************************************************************************/
+ 
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include "EST_String.h"
+ #include "EST_Token.h"
+ #include "EST_THash.h"
+Index: b/utils/EST_ServiceTable.cc
+===================================================================
+--- a/utils/EST_ServiceTable.cc
++++ b/utils/EST_ServiceTable.cc
+@@ -36,15 +36,15 @@
+  /* Table of known services.                                              */
+  /*                                                                       */
+  /*************************************************************************/
+-#include <stdlib.h>
++#include <cstdlib>
+ #include "EST_Pathname.h"
+ #include "EST_socket.h"
+ #include "EST_error.h"
+ #include "EST_Token.h"
+ #include "EST_ServiceTable.h"
+-#include <iomanip.h>
+-#include <iostream.h>
+-#include <time.h>
++#include <iomanip>
++#include <iostream>
++#include <ctime>
+ 
+ #if defined(SYSTEM_IS_WIN32)
+ #    define seed_random() srand((unsigned)time(NULL))
+Index: b/include/EST_iostream.h
+===================================================================
+--- a/include/EST_iostream.h
++++ b/include/EST_iostream.h
+@@ -49,7 +49,7 @@
+     /* For OS/2 */
+ #   include <iostream.h>
+ #elif defined(SYSTEM_IS_UNIX)
+-#   include <iostream.h>
++#   include <iostream>
+ #elif defined(SYSTEM_IS_WIN32)
+ #   include "win32/EST_iostream_win32.h"
+ #else
+Index: b/include/EST_TSimpleVector.h
+===================================================================
+--- a/include/EST_TSimpleVector.h
++++ b/include/EST_TSimpleVector.h
+@@ -74,7 +74,7 @@
+     void zero(void);
+ 
+     /// Fill vector with default value
+-    void empty(void) { if (*this->def_val == 0) zero(); else fill(*this->def_val); }
++    void empty(void) { if (*this->def_val == 0) zero(); else this->fill(*this->def_val); }
+ };
+ 
+ #endif
+Index: b/grammar/ngram/EST_Ngrammar.cc
+===================================================================
+--- a/grammar/ngram/EST_Ngrammar.cc
++++ b/grammar/ngram/EST_Ngrammar.cc
+@@ -37,11 +37,11 @@
+ /* An EST_Ngram class for building and manipulating bigrams trigrams etc */
+ /*                                                                       */
+ /*=======================================================================*/
+-#include <iostream.h>
+-#include <fstream.h>
+-#include <string.h>
+-#include <math.h>
+-#include <limits.h>
++#include <iostream>
++#include <fstream>
++#include <string>
++#include <cmath>
++#include <climits>
+ #include <float.h>
+ #include "EST_Ngrammar.h"
+ #include "EST_Pathname.h"
+@@ -579,7 +579,7 @@
+ 	return false;
+     }
+     
+-    p_num_states = (int)pow(vocab->length(),p_order-1);
++    p_num_states = (int)pow((float) vocab->length(),p_order-1);
+     p_states = new EST_NgrammarState[p_num_states];
+     for (i=0; i < p_num_states; i++)
+ 	p_states[i].init(i,pred_vocab);
+@@ -597,7 +597,7 @@
+ 	return false;
+     }
+     
+-    p_num_states = (int)pow(vocab->length(),p_order-1);
++    p_num_states = (int)pow((float)vocab->length(),p_order-1);
+     p_states = new EST_NgrammarState[p_num_states];
+     
+     return (bool)(p_states != NULL);
+Index: b/include/EST_THandle.h
+===================================================================
+--- a/include/EST_THandle.h
++++ b/include/EST_THandle.h
+@@ -37,6 +37,8 @@
+ #include "EST_iostream.h"
+ #include "EST_bool.h"
+ 
++using namespace std;
++
+ /** A `smart' pointer which does reference counting.
+   *
+   * Behaves almost like a pointer as far as naive code is concerned, but
+Index: b/grammar/ngram/EST_lattice.cc
+===================================================================
+--- a/grammar/ngram/EST_lattice.cc
++++ b/grammar/ngram/EST_lattice.cc
+@@ -38,8 +38,8 @@
+ /*=======================================================================*/
+ 
+ #include "EST_lattice.h"
+-#include <fstream.h>
+-#include <stdlib.h>
++#include <fstream>
++#include <cstdlib>
+ 
+ Lattice::Lattice()
+ {

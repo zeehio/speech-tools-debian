@@ -1,0 +1,11 @@
+--- speech-tools-1.2.3.orig/ling_class/genxml.cc
++++ speech-tools-1.2.3/ling_class/genxml.cc
+@@ -736,7 +736,7 @@
+   est_error_throw();
+ }
+ 
+-Declare_TStringHash_T(EST_Item_Content *, THash_String_ItemC_P)
++Declare_TStringHash_Base_T(EST_Item_Content *, NULL, NULL, THash_String_ItemC_P)
+ 
+ #if defined(INSTANTIATE_TEMPLATES)
+ 

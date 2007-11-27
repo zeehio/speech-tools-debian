@@ -1,0 +1,11 @@
+--- speech-tools-1.2.3.orig/ling_class/EST_FeatureFunctionPackage.cc
++++ speech-tools-1.2.3/ling_class/EST_FeatureFunctionPackage.cc
+@@ -41,7 +41,7 @@
+ #include "ling_class/EST_FeatureFunctionPackage.h"
+ 
+ 			
+-Declare_TStringHash_T(EST_FeatureFunctionPackage::Entry, EST_FeatureFunctionPackage_Entry)
++Declare_TStringHash_Base_T(EST_FeatureFunctionPackage::Entry, EST_FeatureFunctionPackage::Entry(), NULL, EST_FeatureFunctionPackage_Entry)
+ 
+ 
+ #if defined(INSTANTIATE_TEMPLATES)
