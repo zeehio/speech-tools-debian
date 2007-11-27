@@ -1,7 +1,8 @@
 speech-tools (1:1.2.96~beta-2) UNRELEASED; urgency=low
 
   * debian/control:
-    + Add Vcs-Git and Vcs-Browser fields.
+    + Add Vcs-Git and Vcs-Browser fields
+    + Removed XS-Dm-Upload-Allowed field
 
  -- Kumar Appaiah <akumar@ee.iitm.ac.in>  Tue, 27 Nov 2007 13:28:45 +0530
 
