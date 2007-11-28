@@ -42,3 +42,4 @@ stats_EST_DProbDist.cc.diff
 testsuite_correct_ch_wave_script.out.diff
 utils_EST_cutils.c.diff
 utils_Makefile.diff
+copyright_4clausefix.diff
