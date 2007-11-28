@@ -1,13 +1,21 @@
 speech-tools (1:1.2.96~beta-2) UNRELEASED; urgency=low
 
+  [ Kumar Appaiah ]
   * debian/control:
     + Add Vcs-Git and Vcs-Browser fields
     + Removed XS-Dm-Upload-Allowed field
   * debian/patches:
     + Removed deprecated four clause BSD license using
       copyright_4clausefix.diff.
-  
- -- Kumar Appaiah <akumar@ee.iitm.ac.in>  Tue, 27 Nov 2007 13:28:45 +0530
+
+  [ Kartik Mistry ]
+  * debian/watch:
+    + Updated to get latest upstream release
+  * debian/copyright:
+    + Updated download location
+    + Corrected copyright year
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Wed, 28 Nov 2007 18:24:47 +0530
 
 speech-tools (1:1.2.96~beta-1) unstable; urgency=low
 
