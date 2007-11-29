@@ -15,7 +15,10 @@ speech-tools (1:1.2.96~beta-2) UNRELEASED; urgency=low
     + Updated download location
     + Corrected copyright year
 
- -- Kartik Mistry <kartik.mistry@gmail.com>  Wed, 28 Nov 2007 18:24:47 +0530
+  [ Kumar Appaiah ]
+  * debian/control: Update Homepage field.
+
+ -- Kumar Appaiah <akumar@ee.iitm.ac.in>  Thu, 29 Nov 2007 11:49:47 +0530
 
 speech-tools (1:1.2.96~beta-1) unstable; urgency=low
 
