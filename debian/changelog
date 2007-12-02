@@ -4,6 +4,7 @@ speech-tools (1:1.2.96~beta-2) UNRELEASED; urgency=low
   * debian/control:
     + Add Vcs-Git and Vcs-Browser fields
     + Removed XS-Dm-Upload-Allowed field
+    + Updated Homepage field
   * debian/patches:
     + Removed deprecated four clause BSD license using
       copyright_4clausefix.diff.
@@ -14,11 +15,11 @@ speech-tools (1:1.2.96~beta-2) UNRELEASED; urgency=low
   * debian/copyright:
     + Updated download location
     + Corrected copyright year
+  * debian/control:
+    + Updated description for libestools1.2-dev package as it doesn't
+      contains docs anymore
 
-  [ Kumar Appaiah ]
-  * debian/control: Update Homepage field.
-
- -- Kumar Appaiah <akumar@ee.iitm.ac.in>  Thu, 29 Nov 2007 11:49:47 +0530
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Sun, 02 Dec 2007 12:32:07 +0530
 
 speech-tools (1:1.2.96~beta-1) unstable; urgency=low
 
