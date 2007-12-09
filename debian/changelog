@@ -18,8 +18,9 @@ speech-tools (1:1.2.96~beta-2) UNRELEASED; urgency=low
   * debian/control:
     + Updated description for libestools1.2-dev package as it doesn't
       contains docs anymore
+    + Updated Standards-Version to 3.7.3
 
- -- Kartik Mistry <kartik.mistry@gmail.com>  Sun, 02 Dec 2007 12:32:07 +0530
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Sun, 09 Dec 2007 22:14:09 +0530
 
 speech-tools (1:1.2.96~beta-1) unstable; urgency=low
 
