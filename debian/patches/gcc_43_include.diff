@@ -1,0 +1,24 @@
+Index: b/base_class/EST_TSimpleMatrix.cc
+===================================================================
+--- a/base_class/EST_TSimpleMatrix.cc
++++ b/base_class/EST_TSimpleMatrix.cc
+@@ -45,6 +45,7 @@
+ #include <fstream>
+ #include <iostream>
+ #include "EST_cutils.h"
++#include <cstring>
+ 
+ template<class T> 
+ void EST_TSimpleMatrix<T>::copy_data(const EST_TSimpleMatrix<T> &a)
+Index: b/base_class/EST_TSimpleVector.cc
+===================================================================
+--- a/base_class/EST_TSimpleVector.cc
++++ b/base_class/EST_TSimpleVector.cc
+@@ -44,6 +44,7 @@
+ #include "EST_matrix_support.h"
+ #include <fstream>
+ #include "EST_cutils.h"
++#include <cstring>
+ 
+ template<class T> void EST_TSimpleVector<T>::copy(const EST_TSimpleVector<T> &a)
+ {
