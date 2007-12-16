@@ -11,7 +11,7 @@ speech-tools (1:1.2.96~beta-2) UNRELEASED; urgency=low
 
   [ Kartik Mistry ]
   * debian/watch:
-    + Updated to get latest upstream release
+    + Updated to get latest upstream release (Closes: #456469)
   * debian/copyright:
     + Updated download location
     + Corrected copyright year
