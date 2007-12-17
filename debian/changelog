@@ -23,7 +23,7 @@ speech-tools (1:1.2.96~beta-2) unstable; urgency=low
       contains docs anymore
     + Updated Standards-Version to 3.7.3
 
- -- Kumar Appaiah <akumar@ee.iitm.ac.in>  Mon, 10 Dec 2007 20:27:31 +0530
+ -- Kumar Appaiah <akumar@ee.iitm.ac.in>  Mon, 17 Dec 2007 08:22:55 +0530
 
 speech-tools (1:1.2.96~beta-1) unstable; urgency=low
 
