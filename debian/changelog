@@ -7,7 +7,7 @@ speech-tools (1:1.2.96~beta-3) UNRELEASED; urgency=low
   * debian/control:
     + Standards Version is now 3.8.0 (no changes needed).
     + Maintainers' addresses changed to debian.org addresses.
-  
+
  -- Kumar Appaiah <akumar@debian.org>  Sat, 21 Feb 2009 14:28:22 -0600
 
 speech-tools (1:1.2.96~beta-2) unstable; urgency=low
