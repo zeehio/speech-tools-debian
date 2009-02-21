@@ -1,3 +1,6 @@
+This patch is part of a series of patches for speech-tools for
+Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
+
 This patch removes the advertising clause from the BSD project's
 files, as the BSD project has deprecated the 4-clause license with
 that clause anyway.

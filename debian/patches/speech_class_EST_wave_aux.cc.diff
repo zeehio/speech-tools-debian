@@ -1,3 +1,6 @@
+This patch is part of a series of patches for speech-tools for
+Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
+
 --- speech-tools-1.2.3.orig/speech_class/EST_wave_aux.cc
 +++ speech-tools-1.2.3/speech_class/EST_wave_aux.cc
 @@ -287,7 +287,7 @@

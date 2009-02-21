@@ -1,3 +1,6 @@
+This patch is part of a series of patches for speech-tools for
+Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
+
 From 914b3536476ec7126ac7018f162c1c520f81070b Mon Sep 17 00:00:00 2001
 From: Kumar Appaiah <akumar@debian.org>
 Date: Sat, 21 Feb 2009 14:15:06 -0600

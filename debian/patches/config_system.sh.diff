@@ -1,3 +1,6 @@
+This patch is part of a series of patches for speech-tools for
+Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
+
 --- speech-tools-1.2.3.orig/config/system.sh
 +++ speech-tools-1.2.3/config/system.sh
 @@ -60,8 +60,7 @@
