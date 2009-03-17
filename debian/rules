@@ -21,8 +21,8 @@ S_DOC = na_play na_record ch_wave ch_utt ch_track ch_lab
 S_UNDOC = bcat dp ngram_build \
 	ngram_test ols ols_test pda pitchmark scfg_make scfg_parse scfg_test \
 	scfg_train sig2fv sigfilter spectgen tilt_analysis tilt_synthesis \
-	viterbi wagon wagon_test wfst_build wfst_run pm make_wagon_desc \
-	raw_to_xgraph resynth
+	viterbi wagon wagon_test wfst_build wfst_run make_wagon_desc \
+	raw_to_xgraph resynth # pm removed temporarily
 S_SCRIPTS = pm.prl raw_to_xgraph.prl make_wagon_desc.sh resynth.sh
 
 build: build-stamp
@@ -47,7 +47,7 @@ endif
 	dh_testdir
 	dh_testroot
 	dh_clean
-	$(MAKE) clean
+	$(MAKE) clean SYSTEM_TYPE=unknown_DebianGNULinux
 	find -name make.depend -print0 | xargs -0r $(RM)
 	find -name make.include -print0 | xargs -0r $(RM)
 	find bin/ \( -name SCCS -o -name RCS -o -name CVS \) -prune \

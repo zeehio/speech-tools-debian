@@ -1,12 +1,20 @@
-speech-tools (1:1.2.96~beta-3) UNRELEASED; urgency=low
+speech-tools (1:1.2.96~beta-3) unstable; urgency=low
 
   * Add common description for all patches.
   * debian/patches/include_EST_ChannelType.diff:
     + Added to introduce parentheses around macro
       EST_CoefChannelId to avoid compiler warnings.
+  * debian/patches/utils_EST_cutils.c.diff:
+    + Update using Milan Zamazal's patch to honour $TMPDIR.
   * debian/control:
     + Standards Version is now 3.8.0 (no changes needed).
     + Maintainers' addresses changed to debian.org addresses.
+  * debian/rules:
+    + Add patch from Petr Salinger to allow building on
+      Debian GNU/kFreeBSD. (Closes: #497923)
+    + For now, don't add the placeholder man page for pm to
+      avoid pm.1 conflict with powerman package.
+      (Closes: #520001)
 
  -- Kumar Appaiah <akumar@debian.org>  Sat, 21 Feb 2009 14:28:22 -0600
 
