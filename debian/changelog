@@ -1,3 +1,13 @@
+speech-tools (1:1.2.96~beta-4) unstable; urgency=low
+
+  * debian/rules:
+    + Move pm Perl script to simple-pitchmark to avoid
+      using /usr/bin/pm as the executable name. (Closes: #520445)
+  * debian/README.Debian: Explain pm renaming.
+  * debian/manpage.1: Provide correct location of documentation.
+
+ -- Kumar Appaiah <akumar@debian.org>  Sat, 28 Mar 2009 09:58:45 -0500
+
 speech-tools (1:1.2.96~beta-3) unstable; urgency=low
 
   * Add common description for all patches.

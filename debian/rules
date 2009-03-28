@@ -22,8 +22,10 @@ S_UNDOC = bcat dp ngram_build \
 	ngram_test ols ols_test pda pitchmark scfg_make scfg_parse scfg_test \
 	scfg_train sig2fv sigfilter spectgen tilt_analysis tilt_synthesis \
 	viterbi wagon wagon_test wfst_build wfst_run make_wagon_desc \
-	raw_to_xgraph resynth # pm removed temporarily
-S_SCRIPTS = pm.prl raw_to_xgraph.prl make_wagon_desc.sh resynth.sh
+	raw_to_xgraph resynth simple-pitchmark
+
+# We install pm as simple-pitchmark
+S_SCRIPTS = raw_to_xgraph.prl make_wagon_desc.sh resynth.sh
 
 build: build-stamp
 
@@ -79,6 +81,12 @@ install: build
 				<$$i >$(SBT)/usr/bin/$$dest; \
 			chmod +x $(SBT)/usr/bin/$$dest; \
 		done)
+	# Handle the case of pm separately.
+	(cd scripts && \
+			dest=simple-pitchmark; \
+			sed -e 's,__PERL__,/usr/bin/perl,g' \
+				<pm.prl >$(SBT)/usr/bin/$$dest; \
+			chmod +x $(SBT)/usr/bin/$$dest;)
 	install -m 0644 $(patsubst %,debian/%.1,$(S_DOC)) $(SBT)/usr/share/man/man1
 
 	dh_installdirs -p libestools$(MAJORVER)-dev usr/lib/speech_tools/lib/siod \
