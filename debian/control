@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Kartik Mistry <kartik@debian.org>
 Uploaders: Kumar Appaiah <akumar@debian.org>
 Build-Depends: debhelper (>= 5), autotools-dev, gawk | awk, libesd0-dev, libncurses5-dev, quilt (>= 0.40)
-Standards-Version: 3.8.0
+Standards-Version: 3.8.1
 Homepage: http://festvox.org/packed/festival/
 Vcs-Git: git://git.debian.org/git/collab-maint/speech-tools.git
 Vcs-Browser: http://git.debian.org/?p=collab-maint/speech-tools.git
@@ -16,8 +16,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: speech-tools1, libestools1.2c102
 Replaces: speech-tools1, libestools1.2c102
 Description: Edinburgh Speech Tools Library
- A library for use in speech software, such as the festival speech synthesis
- system.
+ This package containts Edinburgh Speech Tools Libraries for use in speech
+ software, such as the festival speech synthesis system.
 
 Package: libestools1.2-dev
 Architecture: any
@@ -33,7 +33,6 @@ Description: Edinburgh Speech Tools Library - developer's libraries
 
 Package: speech-tools
 Architecture: any
-Section: sound
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: speech-tools-bin
 Replaces: speech-tools-bin
