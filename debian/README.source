@@ -1,4 +1,4 @@
-The festival package uses quilt to maintain local changes to the speech-tools
+This package uses quilt to maintain local changes to the speech-tools
 distribution.  The Debian-specific patches are maintained in the debian/patches/
 directory.
 
