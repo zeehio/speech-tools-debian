@@ -2,12 +2,14 @@ speech-tools (1:1.2.96~beta-5) UNRELEASED; urgency=low
 
   * debian/control:
     + Updated Standards-Version to 3.8.3
-    + [Lintian] Removed duplicate section for binary speech-tools
+    + [Lintian] Removed duplicate section for speech-tools binary
     + [Lintian] Updated package descriptions
     + Wrapped up Depends and Build-Depends
-  * Added debian/README.source
+  * Added debian/README.source file
+  * debian/*.1:
+    + [Lintian] Fixed manpage warnings of undefined .P
 
- -- Kartik Mistry <kartik@debian.org>  Mon, 24 Aug 2009 08:14:09 +0530
+ -- Kartik Mistry <kartik@debian.org>  Mon, 24 Aug 2009 19:36:08 +0530
 
 speech-tools (1:1.2.96~beta-4) unstable; urgency=low
 
