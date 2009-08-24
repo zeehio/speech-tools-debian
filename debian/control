@@ -3,8 +3,13 @@ Section: sound
 Priority: optional
 Maintainer: Kartik Mistry <kartik@debian.org>
 Uploaders: Kumar Appaiah <akumar@debian.org>
-Build-Depends: debhelper (>= 5), autotools-dev, gawk | awk, libesd0-dev, libncurses5-dev, quilt (>= 0.40)
-Standards-Version: 3.8.2
+Build-Depends: debhelper (>= 5),
+               autotools-dev,
+               gawk | awk,
+               libesd0-dev,
+               libncurses5-dev,
+               quilt (>= 0.40)
+Standards-Version: 3.8.3
 Homepage: http://festvox.org/packed/festival/
 Vcs-Git: git://git.debian.org/git/collab-maint/speech-tools.git
 Vcs-Browser: http://git.debian.org/?p=collab-maint/speech-tools.git
@@ -13,23 +18,32 @@ Package: libestools1.2
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: speech-tools1, libestools1.2c102
-Replaces: speech-tools1, libestools1.2c102
+Conflicts: speech-tools1,
+           libestools1.2c102
+Replaces: speech-tools1,
+          libestools1.2c102
 Description: Edinburgh Speech Tools Library
- This package containts Edinburgh Speech Tools Libraries for use in speech
- software, such as the festival speech synthesis system.
+ The Edinburgh Speech Tools Library is a collection of C++ class, functions and
+ related programs for manipulating the sorts of objects used in speech
+ processing.
 
 Package: libestools1.2-dev
 Architecture: any
 Section: libdevel
-Depends: libc6-dev, libesd0-dev, libestools1.2 (= ${binary:Version}), libncurses5-dev
+Depends: libc6-dev,
+         libesd0-dev,
+         libestools1.2 (= ${binary:Version}),
+         libncurses5-dev
 Conflicts: speech-tools-dev
 Replaces: speech-tools-dev
 Provides: libestools-dev
 Recommends: speech-tools-doc
 Description: Edinburgh Speech Tools Library - developer's libraries
- This package contains the header files and static libraries that developers
- using the Edinburgh Speech Tools Library will need.
+ The Edinburgh Speech Tools Library is a collection of C++ class, functions and
+ related programs for manipulating the sorts of objects used in speech
+ processing.
+ .
+ This package contains the header files and static libraries.
 
 Package: speech-tools
 Architecture: any
