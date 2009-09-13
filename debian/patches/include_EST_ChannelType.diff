@@ -1,3 +1,5 @@
+This patch is part of a series of patches for speech-tools for
+Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
 Index: speech-tools/include/EST_ChannelType.h
 ===================================================================
 --- speech-tools.orig/include/EST_ChannelType.h	2009-03-17 09:01:00.000000000 -0500
