@@ -8,6 +8,8 @@ speech-tools (1:1.2.96~beta-5) UNRELEASED; urgency=low
   * Added debian/README.source file
   * debian/*.1:
     + [Lintian] Fixed manpage warnings of undefined .P
+  * debian/patches/include_EST_ChannelType.diff:
+    + Added missing patch description
 
  -- Kartik Mistry <kartik@debian.org>  Mon, 24 Aug 2009 19:36:08 +0530
 
