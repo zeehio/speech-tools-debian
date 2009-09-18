@@ -1,4 +1,4 @@
-speech-tools (1:1.2.96~beta-5) UNRELEASED; urgency=low
+speech-tools (1:1.2.96~beta-5) unstable; urgency=low
 
   * debian/control:
     + Updated Standards-Version to 3.8.3
@@ -11,7 +11,7 @@ speech-tools (1:1.2.96~beta-5) UNRELEASED; urgency=low
   * debian/patches/include_EST_ChannelType.diff:
     + Added missing patch description
 
- -- Kartik Mistry <kartik@debian.org>  Mon, 24 Aug 2009 19:36:08 +0530
+ -- Kartik Mistry <kartik@debian.org>  Fri, 18 Sep 2009 10:40:22 +0530
 
 speech-tools (1:1.2.96~beta-4) unstable; urgency=low
 
