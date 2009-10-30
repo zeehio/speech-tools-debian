@@ -3,8 +3,10 @@ speech-tools (1:1.2.96~beta-6) UNRELEASED; urgency=low
   * debian/patches/invalid_const_char_conversion_fixes.diff:
     + Added patch to fix invalid_const_char_conversion_fixes.diff, Thanks to
       Ilya Barygin <barygin@gmail.com> (Closes: #548521)
+  * debian/control:
+    + Don't Recommends speech-tools, use Suggests instead
 
- -- Kartik Mistry <kartik@debian.org>  Sun, 27 Sep 2009 13:00:44 +0530
+ -- Kartik Mistry <kartik@debian.org>  Fri, 30 Oct 2009 20:59:34 +0530
 
 speech-tools (1:1.2.96~beta-5) unstable; urgency=low
 

@@ -37,7 +37,7 @@ Depends: libc6-dev,
 Conflicts: speech-tools-dev
 Replaces: speech-tools-dev
 Provides: libestools-dev
-Recommends: speech-tools-doc
+Suggests: speech-tools-doc
 Description: Edinburgh Speech Tools Library - developer's libraries
  The Edinburgh Speech Tools Library is a collection of C++ class, functions and
  related programs for manipulating the sorts of objects used in speech
