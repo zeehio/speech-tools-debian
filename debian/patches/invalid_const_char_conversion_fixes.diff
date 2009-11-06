@@ -1,7 +1,7 @@
 Patch to Fix FTBFS due to invalid const char * conversion (#548521), Thanks to
 Ilya Barygin <barygin@gmail.com>
 --- /dev/null
-+++ b/debian/patches/const_char.diff
++++ b/debian/patches/invalid_const_char_conversion_fixes.diff
 @@ -0,0 +1,23 @@
 +Index: speech-tools-1.2.96~beta/speech_class/EST_wave_io.cc
 +===================================================================
