@@ -1,4 +1,4 @@
-speech-tools (1:1.2.96~beta-6) unstable; urgency=low
+speech-tools (1:1.2.96~beta-6) UNRELEASED; urgency=low
 
   * debian/patches/invalid_const_char_conversion_fixes.diff:
     + Added patch to fix invalid_const_char_conversion_fixes.diff, Thanks to
@@ -7,7 +7,7 @@ speech-tools (1:1.2.96~beta-6) unstable; urgency=low
     + Don't Recommends speech-tools, use Suggests instead to not pull unwanted
     speech-tools-doc package while installing -dev package
 
- -- Kartik Mistry <kartik@debian.org>  Fri, 06 Nov 2009 21:23:24 +0530
+ -- Kartik Mistry <kartik@debian.org>  Tue, 10 Nov 2009 09:00:20 +0530
 
 speech-tools (1:1.2.96~beta-5) unstable; urgency=low
 
