@@ -1,5 +1,6 @@
 speech-tools (1:1.2.96~beta-6) UNRELEASED; urgency=low
 
+  [ Kartik Mistry ]
   * debian/patches/invalid_const_char_conversion_fixes.diff:
     + Added patch to fix invalid_const_char_conversion_fixes.diff, Thanks to
       Ilya Barygin <barygin@gmail.com> (Closes: #548521)
@@ -7,7 +8,12 @@ speech-tools (1:1.2.96~beta-6) UNRELEASED; urgency=low
     + Don't Recommends speech-tools, use Suggests instead to not pull unwanted
     speech-tools-doc package while installing -dev package
 
- -- Kartik Mistry <kartik@debian.org>  Tue, 10 Nov 2009 09:00:20 +0530
+  [ Kumar Appaiah ]
+  * Fix build system to avoid unresolved symbols, so that the build is
+    possible with binutils-gold. Thanks to Peter Fritzsche for his help
+    with this. (Closes: #558964)
+
+ -- Kumar Appaiah <akumar@debian.org>  Sat, 05 Dec 2009 01:42:35 -0600
 
 speech-tools (1:1.2.96~beta-5) unstable; urgency=low
 
