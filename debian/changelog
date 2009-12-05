@@ -1,4 +1,4 @@
-speech-tools (1:1.2.96~beta-6) UNRELEASED; urgency=low
+speech-tools (1:1.2.96~beta-6) unstable; urgency=low
 
   [ Kartik Mistry ]
   * debian/patches/invalid_const_char_conversion_fixes.diff:
@@ -13,7 +13,7 @@ speech-tools (1:1.2.96~beta-6) UNRELEASED; urgency=low
     possible with binutils-gold. Thanks to Peter Fritzsche for his help
     with this. (Closes: #558964)
 
- -- Kumar Appaiah <akumar@debian.org>  Sat, 05 Dec 2009 01:42:35 -0600
+ -- Kumar Appaiah <akumar@debian.org>  Sat, 05 Dec 2009 08:59:30 -0600
 
 speech-tools (1:1.2.96~beta-5) unstable; urgency=low
 
