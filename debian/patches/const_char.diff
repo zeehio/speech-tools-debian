@@ -1,3 +1,5 @@
+Patch to Fix FTBFS due to invalid const char * conversion (#548521), Thanks to
+Ilya Barygin <barygin@gmail.com>
 Index: speech-tools-1.2.96~beta/speech_class/EST_wave_io.cc
 ===================================================================
 --- speech-tools-1.2.96~beta.orig/speech_class/EST_wave_io.cc	2009-09-26 12:20:49.000000000 +0400

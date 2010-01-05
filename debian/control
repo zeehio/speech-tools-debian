@@ -30,7 +30,8 @@ Description: Edinburgh Speech Tools Library
 Package: libestools1.2-dev
 Architecture: any
 Section: libdevel
-Depends: libc6-dev,
+Depends: ${misc:Depends},
+         libc6-dev,
          libesd0-dev,
          libestools1.2 (= ${binary:Version}),
          libncurses5-dev
