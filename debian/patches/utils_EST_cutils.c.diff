@@ -1,10 +1,10 @@
 This patch is part of a series of patches for speech-tools for
 Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
 
-Index: speech-tools/utils/EST_cutils.c
+Index: speech-tools-2.0.95~beta/utils/EST_cutils.c
 ===================================================================
---- speech-tools.orig/utils/EST_cutils.c	2009-02-21 14:20:05.000000000 -0600
-+++ speech-tools/utils/EST_cutils.c	2009-03-17 09:03:29.000000000 -0500
+--- speech-tools-2.0.95~beta.orig/utils/EST_cutils.c	2008-09-05 09:32:47.000000000 -0500
++++ speech-tools-2.0.95~beta/utils/EST_cutils.c	2010-07-17 09:29:38.000000000 -0500
 @@ -54,12 +54,19 @@
  #ifdef ESTLIBDIRC
  #    define ESTLIBDIR STRINGIZE(ESTLIBDIRC)
@@ -26,14 +26,3 @@ Index: speech-tools/utils/EST_cutils.c
  
  const char * const est_ostype = STRINGIZE(ESTOSTYPE);
  
-@@ -71,8 +78,8 @@
-     char *t1;
-     int i,j;
- 
--    if (((tdir=getenv("TMPDIR")) == NULL) ||
--	((tdir=getenv("TEMP")) == NULL) ||
-+    if (((tdir=getenv("TMPDIR")) == NULL) &&
-+	((tdir=getenv("TEMP")) == NULL) &&
- 	((tdir=getenv("TMP")) == NULL))
- 	tdir = "/tmp";
-     

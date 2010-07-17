@@ -11,8 +11,9 @@ speech-tools (1:2.0.95~beta-1) unstable; urgency=low
   [ Kumar Appaiah ]
   * New upstream release.
   * Standards Version is now 3.9.0 (No changes needed)
+  * Update debian/rules to specify version numbers.
 
- -- Kumar Appaiah <akumar@debian.org>  Sat, 17 Jul 2010 08:55:18 -0500
+ -- Kumar Appaiah <akumar@debian.org>  Sat, 17 Jul 2010 11:32:04 -0500
 
 speech-tools (1:1.2.96~beta-6) unstable; urgency=low
 
