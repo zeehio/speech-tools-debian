@@ -1,10 +1,10 @@
 This patch is part of a series of patches for speech-tools for
 Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
 
-Index: b/config/compilers/gcc_defaults.mak
+Index: speech-tools/config/compilers/gcc_defaults.mak
 ===================================================================
---- a/config/compilers/gcc_defaults.mak
-+++ b/config/compilers/gcc_defaults.mak
+--- speech-tools.orig/config/compilers/gcc_defaults.mak	2010-02-03 06:28:14.000000000 -0600
++++ speech-tools/config/compilers/gcc_defaults.mak	2010-07-17 08:18:11.000000000 -0500
 @@ -39,7 +39,7 @@
   ###########################################################################
  
@@ -23,16 +23,8 @@ Index: b/config/compilers/gcc_defaults.mak
  
  DEBUG_CCFLAGS   = -g
  DEBUG_CXXFLAGS  = -g
-@@ -76,12 +76,12 @@
- PROFILE_gprof_CXXFLAGS  = -pg
- PROFILE_gprof_LINKFLAGS = -pg
- 
--SHARED_CCFLAGS  = -fPIC -fno-shared-data
--SHARED_CXXFLAGS  = -fPIC -fno-shared-data
--SHARED_LINKFLAGS = -fno-shared-data
-+SHARED_CCFLAGS  = -fPIC
-+SHARED_CXXFLAGS  = -fPIC
-+SHARED_LINKFLAGS =
+@@ -81,7 +81,7 @@
+ SHARED_LINKFLAGS = 
  
  ifndef GCC_MAKE_SHARED_LIB
 -    MAKE_SHARED_LIB = $(CXX) -shared -fno-shared-data -o XXX

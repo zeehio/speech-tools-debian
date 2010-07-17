@@ -1,6 +1,6 @@
-speech-tools (1:1.2.96~beta-7) UNRELEASED; urgency=low
+speech-tools (1:2.0.95~beta-1) unstable; urgency=low
 
-  [Kartik Mistry]
+  [ Kartik Mistry ]
   * debian/control:
     + [Lintian] Added missing ${misc:Depends}
     + Updated Standards-Version to 3.8.4 (no changes needed)
@@ -8,7 +8,11 @@ speech-tools (1:1.2.96~beta-7) UNRELEASED; urgency=low
     + Added missing patch header
   * Removed unused patch invalid_const_char_conversion_fixes.diff
 
- -- Kartik Mistry <kartik@debian.org>  Mon, 15 Mar 2010 20:34:18 +0530
+  [ Kumar Appaiah ]
+  * New upstream release.
+  * Standards Version is now 3.9.0 (No changes needed)
+
+ -- Kumar Appaiah <akumar@debian.org>  Sat, 17 Jul 2010 08:55:18 -0500
 
 speech-tools (1:1.2.96~beta-6) unstable; urgency=low
 

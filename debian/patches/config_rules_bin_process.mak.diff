@@ -1,9 +1,11 @@
 This patch is part of a series of patches for speech-tools for
 Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
 
---- speech-tools-1.2.3.orig/config/rules/bin_process.mak
-+++ speech-tools-1.2.3/config/rules/bin_process.mak
-@@ -55,6 +55,7 @@
+Index: speech-tools/config/rules/bin_process.mak
+===================================================================
+--- speech-tools.orig/config/rules/bin_process.mak	2010-02-03 06:28:14.000000000 -0600
++++ speech-tools/config/rules/bin_process.mak	2010-07-17 08:20:19.000000000 -0500
+@@ -59,6 +59,7 @@
  		Makefile ) : ;; \
  		VCLocalRules ) : ;; \
  		RCS|CVS ) : ;; \

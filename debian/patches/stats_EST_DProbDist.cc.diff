@@ -1,23 +1,25 @@
 This patch is part of a series of patches for speech-tools for
 Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
 
---- speech-tools-1.2.96~beta.orig/stats/EST_DProbDist.cc
-+++ speech-tools-1.2.96~beta/stats/EST_DProbDist.cc
-@@ -310,7 +310,7 @@
+Index: speech-tools/stats/EST_DProbDist.cc
+===================================================================
+--- speech-tools.orig/stats/EST_DProbDist.cc	2006-10-05 12:45:39.000000000 -0500
++++ speech-tools/stats/EST_DProbDist.cc	2010-07-17 08:29:07.000000000 -0500
+@@ -372,7 +372,7 @@
      if (type == tprob_discrete)
- 	return 0;
+ 	return NULL;
      else
--	return (int)scounts.list.head();
-+	return (long)scounts.list.head();
+-	return scounts.list.head();
++        return (long)scounts.list.head();
  }
  
- int EST_DiscreteProbDistribution::item_end(int idx) const
-@@ -326,7 +326,7 @@
+ int EST_DiscreteProbDistribution::item_end(EST_Litem *idx) const
+@@ -388,7 +388,7 @@
      if (type == tprob_discrete)
- 	return ++idx;
+ 	return (EST_Litem *)(((unsigned char *)idx)+1);
      else
--	return (int)next((EST_Litem *)idx);
-+	return (long)next((EST_Litem *)idx);
+-	return next(idx);
++        return (long)next(idx);
  }
  
- const EST_String &EST_DiscreteProbDistribution::item_name(int idx) const
+ const EST_String &EST_DiscreteProbDistribution::item_name(EST_Litem *idx) const

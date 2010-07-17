@@ -1,22 +1,11 @@
 This patch is part of a series of patches for speech-tools for
 Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
 
-Index: b/config/project.mak
+Index: speech-tools/config/project.mak
 ===================================================================
---- a/config/project.mak
-+++ b/config/project.mak
-@@ -41,7 +41,9 @@
- 
- PROJECT_NAME = Edinburgh Speech Tools Library
- PROJECT_PREFIX = EST
--PROJECT_VERSION = 1.2.96
-+PROJECT_MAJOR_VERSION = 1.2
-+PROJECT_MINOR_VERSION = 96
-+PROJECT_VERSION = $(PROJECT_MAJOR_VERSION).$(PROJECT_MINOR_VERSION)
- PROJECT_DATE = July 2004
- PROJECT_STATE = beta
- 
-@@ -103,10 +105,11 @@
+--- speech-tools.orig/config/project.mak	2009-07-03 12:55:30.000000000 -0500
++++ speech-tools/config/project.mak	2010-07-17 08:19:51.000000000 -0500
+@@ -103,10 +103,11 @@
  
  PROJECT_LIBRARY_USES_estjava = estbase eststring
  
