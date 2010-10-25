@@ -3,6 +3,18 @@ Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
 
 --- speech-tools-1.2.3.orig/speech_class/EST_WaveFile.cc
 +++ speech-tools-1.2.3/speech_class/EST_WaveFile.cc
+@@ -85,7 +85,10 @@
+ 
+   if (status == read_ok)
+     {
+-      wv.values().set_memory(data, 0, nsamp, nchan, TRUE);
++      short *data2 = new short[nsamp*nchan];
++      memcpy(data2, data, nsamp*nchan*sizeof(short));
++      wfree(data);
++      wv.values().set_memory(data2, 0, nsamp, nchan, TRUE);
+       wv.set_sample_rate(srate);
+     }
+ 
 @@ -312,6 +312,27 @@
      return save_using(save_wave_ulaw, fp, localwv, stype, bo);
  }
@@ -55,12 +67,3 @@ Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
  	
      if (al.present("-r")) // only load in part of waveform
      {
-@@ -560,6 +591,8 @@
-     { FALSE,  EST_WaveFile::load_raw,  EST_WaveFile::save_raw, "Headerless File" } },
-   { wff_ulaw,	{ "ulaw", "basic" }, 
-     { FALSE,  EST_WaveFile::load_ulaw,  EST_WaveFile::save_ulaw, "Headerless 8K ulaw  File" } },
-+  { wff_alaw,	{ "alaw", "basic" }, 
-+    { FALSE,  EST_WaveFile::load_alaw,  EST_WaveFile::save_alaw, "Headerless 8K alaw  File" } },
-   { wff_none,	{NULL} }
- };
- 

@@ -1,3 +1,11 @@
+speech-tools (1:2.0.95~beta-2) unstable; urgency=low
+
+  * Update speech_class_EST_WaveFile.cc.diff to fix audsp related
+    crashes. (Closes: #601294)
+  * Update Standards Version to 3.9.1 (no changes needed)
+
+ -- Kumar Appaiah <akumar@debian.org>  Sun, 24 Oct 2010 19:02:37 -0500
+
 speech-tools (1:2.0.95~beta-1) unstable; urgency=low
 
   [ Kartik Mistry ]
