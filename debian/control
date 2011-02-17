@@ -14,7 +14,7 @@ Homepage: http://festvox.org/packed/festival/
 Vcs-Git: git://git.debian.org/git/collab-maint/speech-tools.git
 Vcs-Browser: http://git.debian.org/?p=collab-maint/speech-tools.git
 
-Package: libestools2.0
+Package: libestools2.1
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -27,16 +27,16 @@ Description: Edinburgh Speech Tools Library
  related programs for manipulating the sorts of objects used in speech
  processing.
 
-Package: libestools2.0-dev
+Package: libestools2.1-dev
 Architecture: any
 Section: libdevel
 Depends: ${misc:Depends},
          libc6-dev,
          libesd0-dev,
-         libestools2.0 (= ${binary:Version}),
+         libestools2.1 (= ${binary:Version}),
          libncurses5-dev
 Conflicts: speech-tools-dev
-Replaces: speech-tools-dev, libestools1.2-dev (<< 1:2.0.95~beta-1)
+Replaces: speech-tools-dev, libestools2.0-dev
 Provides: libestools-dev
 Suggests: speech-tools-doc
 Description: Edinburgh Speech Tools Library - developer's libraries
@@ -50,7 +50,7 @@ Package: speech-tools
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: speech-tools-bin
-Replaces: speech-tools-bin, speech-tools (<< 1:2.0.95~beta-1)
+Replaces: speech-tools-bin
 Suggests: speech-tools-doc
 Description: Edinburgh Speech Tools - user binaries
  This package contains the various highly useful utility programs that use and

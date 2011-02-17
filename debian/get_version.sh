@@ -4,5 +4,5 @@
 # be fixed.
 
 FULLVER=`dpkg-parsechangelog |awk '/^Version/ { sub(/^1:/, "", $2); sub(/~.*$/, "", $2);print $2}'`
-MAJORVER=`echo $FULLVER|sed 's/\.[^\.]\+$//'`
+MAJORVER=`echo $FULLVER|sed 's/^\([^\.]\+\.[^\.]\)\.[^\.]\+$/\1/'`
 echo $FULLVER $MAJORVER

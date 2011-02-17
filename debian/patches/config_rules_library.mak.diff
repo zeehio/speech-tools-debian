@@ -3,8 +3,8 @@ Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
 
 Index: speech-tools/config/rules/library.mak
 ===================================================================
---- speech-tools.orig/config/rules/library.mak	2009-12-05 01:46:31.000000000 -0600
-+++ speech-tools/config/rules/library.mak	2009-12-05 02:03:33.000000000 -0600
+--- speech-tools.orig/config/rules/library.mak	2011-02-16 11:03:11.000000000 -0600
++++ speech-tools/config/rules/library.mak	2011-02-16 20:01:11.000000000 -0600
 @@ -102,15 +102,44 @@
   ##                                                                       ##
   ###########################################################################
@@ -19,8 +19,8 @@ Index: speech-tools/config/rules/library.mak
 +		$(subst XXX,$@.$(PROJECT_VERSION),$(MAKE_SHARED_LIB))) \
 +		shared_space/*.o $(PROJECT_LIBRARY_USES_estools:%=-L. -l%) $$libs -L. -lestbase -leststring -lncurses
 +	$(RM) -f shared_space/*.o $@
-+	ln -sf $@.$(PROJECT_VERSION) $@.$(PROJECT_LIBRARY_VERSION_estools)
-+	ln -sf $@.$(PROJECT_LIBRARY_VERSION_estools) $@
++	-ln -sf $@.$(PROJECT_VERSION) $@.$(PROJECT_LIBRARY_VERSION_estools)
++	-ln -sf $@.$(PROJECT_LIBRARY_VERSION_estools) $@
 +
 +libestbase.so : libestbase.a
 +	echo Make Shared Library estbase
@@ -32,8 +32,8 @@ Index: speech-tools/config/rules/library.mak
 +		$(subst XXX,$@.$(PROJECT_VERSION),$(MAKE_SHARED_LIB))) \
 +		shared_space/*.o $(PROJECT_LIBRARY_USES_estbase:%=-L. -l%) $$libs -L. -lesd
 +	$(RM) -f shared_space/*.o $@
-+	ln -sf $@.$(PROJECT_VERSION) $@.$(PROJECT_LIBRARY_VERSION_estbase)
-+	ln -sf $@.$(PROJECT_LIBRARY_VERSION_estbase) $@
++	-ln -sf $@.$(PROJECT_VERSION) $@.$(PROJECT_LIBRARY_VERSION_estbase)
++	-ln -sf $@.$(PROJECT_LIBRARY_VERSION_estbase) $@
 +
  lib%.so : lib%.a
 -	@echo Make Shared Library $*
@@ -52,8 +52,8 @@ Index: speech-tools/config/rules/library.mak
 +		$(subst XXX,$@.$(PROJECT_VERSION),$(MAKE_SHARED_LIB))) \
 +		shared_space/*.o $(PROJECT_LIBRARY_USES_$*:%=-L. -l%) $$libs
 +	$(RM) -f shared_space/*.o $@
-+	ln -sf $@.$(PROJECT_VERSION) $@.$(PROJECT_LIBRARY_VERSION_$*)
-+	ln -sf $@.$(PROJECT_LIBRARY_VERSION_$*) $@
++	-ln -sf $@.$(PROJECT_VERSION) $@.$(PROJECT_LIBRARY_VERSION_$*)
++	-ln -sf $@.$(PROJECT_LIBRARY_VERSION_$*) $@
  
   ###########################################################################
   ##                                                                       ##

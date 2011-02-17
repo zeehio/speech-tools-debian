@@ -8,9 +8,9 @@ DEBVER=$(shell dpkg-parsechangelog |awk '/^Version/ { print $$2}')
 
 include /usr/share/quilt/quilt.make
 
-SO  := $(shell pwd)/debian/libestools2.0
+SO  := $(shell pwd)/debian/libestools$(MAJORVER)
 SBT := $(shell pwd)/debian/speech-tools
-STD := $(shell pwd)/debian/libestools2.0-dev
+STD := $(shell pwd)/debian/libestools$(MAJORVER)-dev
 SBTM:= $(SBT)/usr/share/man/man1
 
 S_PROGRAMS = bcat ch_lab ch_track ch_utt ch_wave dp na_play na_record ngram_build \
@@ -36,7 +36,7 @@ endif
 ifneq "$(wildcard /usr/share/misc/config.guess)" ""
 	cp -f /usr/share/misc/config.guess config.guess
 endif
-	$(MAKE) PROJECT_VERSION=$(shell dpkg-parsechangelog|grep "Version:"|sed 's/^.*://;s/~.*$$//') PROJECT_MAJOR_VERSION=$(shell dpkg-parsechangelog|grep "Version:"|sed 's/^.*://;s/\([0-9][0-9]*\.[0-9][0-9]*\)\..*$$/\1/')
+	$(MAKE) PROJECT_VERSION=$(shell dpkg-parsechangelog|grep "Version:"|sed 's/^.*://;s/~.*$$//') PROJECT_MAJOR_VERSION=$(MAJORVER)
 	touch $@
 
 clean: unpatch
@@ -64,7 +64,7 @@ install: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs -p libestools2.0 usr/lib
+	dh_installdirs -p libestools$(MAJORVER) usr/lib
 
 	cp lib/*.so.$(FULLVER) $(SO)/usr/lib
 	dh_link -p libestools$(MAJORVER) \

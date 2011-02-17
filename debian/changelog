@@ -1,3 +1,15 @@
+speech-tools (1:2.1~release-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump soname; shlibs etc. updated
+  * Update patches and rules file to handle symlinks with just x.y
+    versioning as opposed to x.y.z by appropriately ignoring the absence
+    of the minor version number. Also fix major version detection in
+    debian/get_version.sh.
+  * Update watch file to handle "release" in version number
+
+ -- Kumar Appaiah <akumar@debian.org>  Wed, 16 Feb 2011 20:53:04 -0600
+
 speech-tools (1:2.0.95~beta-2) unstable; urgency=low
 
   * Update speech_class_EST_WaveFile.cc.diff to fix audsp related

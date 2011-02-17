@@ -38,7 +38,6 @@ speech_class_EST_wave_io.cc.diff
 speech_class_EST_wave_temp.cc.diff
 speech_class_EST_wave_utils.cc.diff
 speech_class_waveP.h.diff
-stats_EST_DProbDist.cc.diff
 testsuite_correct_ch_wave_script.out.diff
 utils_Makefile.diff
 utils_EST_cutils.c.diff
