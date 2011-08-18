@@ -1,3 +1,17 @@
+speech-tools (1:2.1~release-2.1) unstable; urgency=low
+
+  * New maintainer (closes: #637820)
+
+ -- Jean-Philippe MENGUAL <texou@accelibreinfo.eu>  Tue, 16 Aug 2011 02:19:25 +0200
+
+speech-tools (1:2.1~release-2) unstable; urgency=low
+
+  * Make libestools2.1-dev provide libestools2.0-dev, so that binNMUs can
+    be facilitated.
+  * Add missing copyright entries.
+
+ -- Kumar Appaiah <akumar@debian.org>  Thu, 24 Feb 2011 09:57:35 -0600
+
 speech-tools (1:2.1~release-1) unstable; urgency=low
 
   * New upstream release
