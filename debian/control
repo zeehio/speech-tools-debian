@@ -12,7 +12,7 @@ Build-Depends: debhelper (>= 5),
 Standards-Version: 3.9.2
 Homepage: http://festvox.org/packed/festival/
 Vcs-Git: git://git.debian.org/git/tts/speech-tools.git
-Vcs-Browser: http://git.debian.org/?p=collab-maint/speech-tools.git
+Vcs-Browser: http://git.debian.org/?p=tts/speech-tools.git
 
 Package: libestools2.1
 Architecture: any
