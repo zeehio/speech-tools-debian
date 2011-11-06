@@ -1,3 +1,10 @@
+speech-tools (1:2.1~release-3) UNRELEASED; urgency=low
+
+  * control: Depend on hardening-check.
+  * rules: Set DEB_BUILD_HARDENING=1 to enable hardening.
+
+ -- Samuel Thibault <sthibault@debian.org>  Mon, 07 Nov 2011 00:43:06 +0100
+
 speech-tools (1:2.1~release-2.1) unstable; urgency=low
 
   * New maintainer (closes: #637820)

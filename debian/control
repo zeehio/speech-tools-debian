@@ -8,7 +8,8 @@ Build-Depends: debhelper (>= 5),
                gawk | awk,
                libesd0-dev,
                libncurses5-dev,
-               quilt (>= 0.40)
+               quilt (>= 0.40),
+               hardening-wrapper
 Standards-Version: 3.9.2
 Homepage: http://festvox.org/packed/festival/
 Vcs-Git: git://git.debian.org/git/tts/speech-tools.git

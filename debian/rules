@@ -2,6 +2,8 @@
 
 # export DH_VERBOSE=1
 
+export DEB_BUILD_HARDENING=1
+
 MAJORVER=$(shell sh ./debian/get_version.sh|awk '{print $$2}')
 FULLVER=$(shell sh ./debian/get_version.sh|awk '{print $$1}')
 DEBVER=$(shell dpkg-parsechangelog |awk '/^Version/ { print $$2}')
