@@ -43,3 +43,4 @@ utils_Makefile.diff
 utils_EST_cutils.c.diff
 copyright_4clausefix.diff
 gcc_43_include.diff
+fmt.diff
