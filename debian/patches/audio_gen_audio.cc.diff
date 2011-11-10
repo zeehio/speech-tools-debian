@@ -3,10 +3,10 @@ Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
 
 Index: b/audio/gen_audio.cc
 ===================================================================
---- a/audio/gen_audio.cc
-+++ b/audio/gen_audio.cc
-@@ -103,6 +103,10 @@
-             protocol = "macosxaudio";
+--- a/audio/gen_audio.cc	2011-10-27 09:46:01.000000000 +1100
++++ b/audio/gen_audio.cc	2011-11-11 08:46:56.000000000 +1100
+@@ -95,6 +95,10 @@
+       protocol = "macosxaudio";
  	else if (win32audio_supported)
  	    protocol = "win32audio";
 +	else if (esd_supported)
@@ -16,7 +16,7 @@ Index: b/audio/gen_audio.cc
  	else if (mplayer_supported)
  	    protocol = "mplayeraudio";
  	else
-@@ -242,10 +246,6 @@
+@@ -243,10 +247,6 @@
      audios += "sunaudio";  // we always support this in spite of the hardware
  
      audios += " audio_command";
@@ -27,7 +27,7 @@ Index: b/audio/gen_audio.cc
      if (sun16_supported)
  	audios += " sun16audio";
      if (freebsd16_supported)
-@@ -284,11 +284,7 @@
+@@ -285,11 +285,7 @@
  	protocol = sr;
      else if (protocol == "")
      {
@@ -40,7 +40,7 @@ Index: b/audio/gen_audio.cc
  	    protocol = "sun16audio";
  	else if (freebsd16_supported)
  	    protocol = "freebsd16audio";
-@@ -298,6 +294,10 @@
+@@ -299,6 +295,10 @@
  	    protocol = "irixaudio";
  	else if (win32audio_supported)
  	    protocol = "win32audio";

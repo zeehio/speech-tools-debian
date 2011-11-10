@@ -3,7 +3,7 @@ Section: sound
 Priority: optional
 Maintainer: Jean-Philippe MENGUAL <texou@accelibreinfo.eu>
 Uploaders: Kumar Appaiah <akumar@debian.org>, Jean-Philippe MENGUAL <texou@accelibreinfo.eu>
-Build-Depends: debhelper (>= 5),
+Build-Depends: debhelper (>= 8),
                autotools-dev,
                gawk | awk,
                libesd0-dev,

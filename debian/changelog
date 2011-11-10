@@ -1,3 +1,11 @@
+speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
+
+  * compat: bump to debhelper 8
+  * Move to source format 3.0 quilt.
+  * Refresh contexts and clean up some patches.
+
+ -- Peter Drysdale <drysdalepete@gmail.com>  Fri, 11 Nov 2011 10:06:34 +1000
+
 speech-tools (1:2.1~release-3) UNRELEASED; urgency=low
 
   * control: Depend on hardening-check.
