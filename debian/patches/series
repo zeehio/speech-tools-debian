@@ -1,13 +1,7 @@
 audio_esd.cc.diff
 audio_gen_audio.cc.diff
 audio_nas.cc.diff
-config_compilers_egcs.mak.diff
-config_compilers_gcc28.mak.diff
 config_compilers_gcc295.mak.diff
-config_compilers_gcc296.mak.diff
-config_compilers_gcc30.mak.diff
-config_compilers_gcc31.mak.diff
-config_compilers_gcc32.mak.diff
 config_compilers_gcc_defaults.mak.diff
 config_config.diff
 config_config.in.diff
