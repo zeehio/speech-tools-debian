@@ -8,8 +8,6 @@ MAJORVER=$(shell sh ./debian/get_version.sh|awk '{print $$2}')
 FULLVER=$(shell sh ./debian/get_version.sh|awk '{print $$1}')
 DEBVER=$(shell dpkg-parsechangelog |awk '/^Version/ { print $$2}')
 
-include /usr/share/quilt/quilt.make
-
 SO  := $(shell pwd)/debian/libestools$(MAJORVER)
 SBT := $(shell pwd)/debian/speech-tools
 STD := $(shell pwd)/debian/libestools$(MAJORVER)-dev
@@ -31,7 +29,7 @@ S_SCRIPTS = raw_to_xgraph.prl make_wagon_desc.sh resynth.sh
 
 build: build-stamp
 
-build-stamp: patch
+build-stamp: 
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
 	cp -f /usr/share/misc/config.sub config.sub
 endif
@@ -41,7 +39,7 @@ endif
 	$(MAKE) PROJECT_VERSION=$(shell dpkg-parsechangelog|grep "Version:"|sed 's/^.*://;s/~.*$$//') PROJECT_MAJOR_VERSION=$(MAJORVER)
 	touch $@
 
-clean: unpatch
+clean: 
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
 	cp -f /usr/share/misc/config.sub config.sub
 endif
@@ -57,7 +55,7 @@ endif
 	find bin/ \( -name SCCS -o -name RCS -o -name CVS \) -prune \
 	     -o -type f ! -name Makefile -print0 | xargs -0r $(RM)
 	$(RM) config/modincludes.inc config/system.mak config.log \
-	      config.status config.cache config/config  libestools.so
+	      config.status config.cache libestools.so
 	$(RM) lib/libestools.so*
 	$(RM) config.sub config.guess
 	$(RM) build-stamp
