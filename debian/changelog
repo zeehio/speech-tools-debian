@@ -5,7 +5,7 @@ speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
   * Refresh contexts, clean up some patches, and del. obs. uncompiled patches
   * Clean build system and drop obsolete compiler patches.
 
- -- Peter Drysdale <drysdalepete@gmail.com>  Tue, 15 Nov 2011 09:45:14 +1000
+ -- Peter Drysdale <drysdalepete@gmail.com>  Tue, 15 Nov 2011 10:47:54 +1000
 
 speech-tools (1:2.1~release-3) UNRELEASED; urgency=low
 
