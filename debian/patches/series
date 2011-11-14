@@ -1,6 +1,5 @@
 audio_esd.cc.diff
 audio_gen_audio.cc.diff
-audio_nas.cc.diff
 config_compilers_gcc_defaults.mak.diff
 config_config.diff
 config_config.in.diff
