@@ -10,7 +10,6 @@ config_rules_library.mak.diff
 config_rules_targets.mak.diff
 config_system.sh.diff
 configure.in.diff
-include_EST_Chunk.h.diff
 include_EST_cutils.h.diff
 include_EST_dynamic_model.h.diff
 include_EST_Pathname.h.diff
