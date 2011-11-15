@@ -27,7 +27,6 @@ speech_class_EST_wave_aux.cc.diff
 speech_class_EST_WaveFile.cc.diff
 speech_class_EST_WaveFile.h.diff
 speech_class_EST_wave_io.cc.diff
-speech_class_EST_wave_temp.cc.diff
 speech_class_EST_wave_utils.cc.diff
 speech_class_waveP.h.diff
 testsuite_correct_ch_wave_script.out.diff
