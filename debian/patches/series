@@ -12,7 +12,6 @@ config_system.sh.diff
 configure.in.diff
 include_EST_cutils.h.diff
 include_EST_dynamic_model.h.diff
-include_EST_String.h.diff
 include_EST_TIterator.h.diff
 include_EST_wave_aux.h.diff
 lib_siod_siod.scm.diff
