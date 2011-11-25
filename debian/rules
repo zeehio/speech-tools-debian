@@ -8,9 +8,7 @@ MAJORVER=$(shell sh ./debian/get_version.sh|awk '{print $$2}')
 FULLVER=$(shell sh ./debian/get_version.sh|awk '{print $$1}')
 DEBVER=$(shell dpkg-parsechangelog |awk '/^Version/ { print $$2}')
 
-SO  := $(shell pwd)/debian/libestools$(MAJORVER)
 SBT := $(shell pwd)/debian/speech-tools
-STD := $(shell pwd)/debian/libestools$(MAJORVER)-dev
 SBTM:= $(SBT)/usr/share/man/man1
 
 S_PROGRAMS = bcat ch_lab ch_track ch_utt ch_wave dp na_play na_record ngram_build \
@@ -24,12 +22,15 @@ S_UNDOC = bcat dp ngram_build \
 	viterbi wagon wagon_test wfst_build wfst_run make_wagon_desc \
 	raw_to_xgraph resynth simple-pitchmark
 
-# We install pm as simple-pitchmark
 S_SCRIPTS = raw_to_xgraph.prl make_wagon_desc.sh resynth.sh
 
-build: build-stamp
+override_dh_auto_configure:
+#Avoid conflicting with upstreams build system
 
-build-stamp: 
+override_dh_auto_test:
+#Upstream states test is only for their local development not a functional test
+
+override_dh_auto_build:
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
 	cp -f /usr/share/misc/config.sub config.sub
 endif
@@ -37,19 +38,18 @@ ifneq "$(wildcard /usr/share/misc/config.guess)" ""
 	cp -f /usr/share/misc/config.guess config.guess
 endif
 	$(MAKE) PROJECT_VERSION=$(shell dpkg-parsechangelog|grep "Version:"|sed 's/^.*://;s/~.*$$//') PROJECT_MAJOR_VERSION=$(MAJORVER)
-	touch $@
 
-clean: 
+override_dh_auto_clean:
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
 	cp -f /usr/share/misc/config.sub config.sub
 endif
 ifneq "$(wildcard /usr/share/misc/config.guess)" ""
 	cp -f /usr/share/misc/config.guess config.guess
 endif
-	dh_testdir
-	dh_testroot
-	dh_clean
 	$(MAKE) clean SYSTEM_TYPE=unknown_DebianGNULinux
+
+
+override_dh_clean:
 	find -name make.depend -print0 | xargs -0r $(RM)
 	find -name make.include -print0 | xargs -0r $(RM)
 	find bin/ \( -name SCCS -o -name RCS -o -name CVS \) -prune \
@@ -58,19 +58,10 @@ endif
 	      config.status config.cache libestools.so
 	$(RM) lib/libestools.so*
 	$(RM) config.sub config.guess
-	$(RM) build-stamp
+	dh_clean
 
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-	dh_installdirs -p libestools$(MAJORVER) usr/lib
-
-	cp lib/*.so.$(FULLVER) $(SO)/usr/lib
-	dh_link -p libestools$(MAJORVER) \
-		usr/lib/libestbase.so.$(FULLVER) usr/lib/libestbase.so.$(MAJORVER) \
-		usr/lib/libestools.so.$(FULLVER) usr/lib/libestools.so.$(MAJORVER) \
-		usr/lib/libeststring.so.$(FULLVER) usr/lib/libeststring.so.$(MAJORVER)
+override_dh_auto_install:
+	dh_install -p libestools$(MAJORVER) lib/*.so.$(FULLVER) /usr/lib
 
 	dh_installdirs -p speech-tools usr/bin usr/share/man/man1
 	(cd main && cp $(S_PROGRAMS) $(SBT)/usr/bin)
@@ -81,82 +72,75 @@ install: build
 				<$$i >$(SBT)/usr/bin/$$dest; \
 			chmod +x $(SBT)/usr/bin/$$dest; \
 		done)
-	# Handle the case of pm separately.
+	# Handle the install of pm which is renamed simple-pitchmark separately.
 	(cd scripts && \
-			dest=simple-pitchmark; \
 			sed -e 's,__PERL__,/usr/bin/perl,g' \
-				<pm.prl >$(SBT)/usr/bin/$$dest; \
-			chmod +x $(SBT)/usr/bin/$$dest;)
-	install -m 0644 $(patsubst %,debian/%.1,$(S_DOC)) $(SBT)/usr/share/man/man1
+				<pm.prl >$(SBT)/usr/bin/simple-pitchmark; \
+			chmod +x $(SBT)/usr/bin/simple-pitchmark;)
 
-	dh_installdirs -p libestools$(MAJORVER)-dev usr/lib/speech_tools/lib/siod \
-		usr/include/speech_tools/unix \
-		usr/include/speech_tools/instantiate \
-		usr/include/speech_tools/sigpr \
-		usr/include/speech_tools/rxp \
-		usr/include/speech_tools/ling_class \
-		usr/include/speech_tools/base_class
-	cp lib/*.a $(STD)/usr/lib/
-	dh_link -p libestools$(MAJORVER)-dev \
-		usr/lib/libestbase.so.$(MAJORVER)   usr/lib/libestbase.so \
-		usr/lib/libestools.so.$(MAJORVER)   usr/lib/libestools.so \
-		usr/lib/libeststring.so.$(MAJORVER) usr/lib/libeststring.so
-	cp include/*.h $(STD)/usr/include/speech_tools/
-	cp include/unix/*.h $(STD)/usr/include/speech_tools/unix/
-
+	dh_install -p libestools$(MAJORVER)-dev lib/*.a /usr/lib/
+	dh_install -p libestools$(MAJORVER)-dev include/*.h /usr/include/speech_tools/
+	dh_install -p libestools$(MAJORVER)-dev include/unix/*.h /usr/include/speech_tools/unix/
 	# Note: these are possibly internal headers (C++ lossage)
-	cp include/instantiate/*.h $(STD)/usr/include/speech_tools/instantiate/
-	cp include/sigpr/*.h $(STD)/usr/include/speech_tools/sigpr/
-	cp include/ling_class/*.h $(STD)/usr/include/speech_tools/ling_class/
-	cp include/rxp/*.h $(STD)/usr/include/speech_tools/rxp/
-	cp base_class/*.h $(STD)/usr/include/speech_tools/
-	cp base_class/*.cc $(STD)/usr/include/speech_tools/base_class/
-
+	dh_install -p libestools$(MAJORVER)-dev include/instantiate/*.h /usr/include/speech_tools/instantiate/
+	dh_install -p libestools$(MAJORVER)-dev include/sigpr/*.h /usr/include/speech_tools/sigpr/
+	dh_install -p libestools$(MAJORVER)-dev include/ling_class/*.h /usr/include/speech_tools/ling_class/
+	dh_install -p libestools$(MAJORVER)-dev include/rxp/*.h /usr/include/speech_tools/rxp/
+	dh_install -p libestools$(MAJORVER)-dev base_class/*.h /usr/include/speech_tools/
+	dh_install -p libestools$(MAJORVER)-dev base_class/*.cc /usr/include/speech_tools/base_class/
 	# Needed to compile things against speech_tools
-	cp -R config $(STD)/usr/lib/speech_tools/config
-	find $(STD)/usr/lib/speech_tools/config/ \
-		\( -name SCCS -o -name CVS -o -name RCS \) -print0 | \
-		xargs -0r rm -rf
-	cp make.include $(STD)/usr/lib/speech_tools/
-	cp lib/siod/*.scm $(STD)/usr/lib/speech_tools/lib/siod/
+	dh_install -p libestools$(MAJORVER)-dev make.include /usr/lib/speech_tools/
+	dh_install -p libestools$(MAJORVER)-dev lib/siod/*.scm /usr/lib/speech_tools/lib/siod/
+	dh_install -p libestools$(MAJORVER)-dev config/* /usr/lib/speech_tools/config/
+	dh_install -p libestools$(MAJORVER)-dev config/compilers/* /usr/lib/speech_tools/config/compilers/
+	dh_install -p libestools$(MAJORVER)-dev config/configs/* /usr/lib/speech_tools/config/configs/
+	dh_install -p libestools$(MAJORVER)-dev config/modules/* /usr/lib/speech_tools/config/modules/
+	dh_install -p libestools$(MAJORVER)-dev config/rules/* /usr/lib/speech_tools/config/rules/
+	dh_install -p libestools$(MAJORVER)-dev config/systems/* /usr/lib/speech_tools/config/systems/
 
 	chmod +x debian/libestools$(MAJORVER)-dev/usr/lib/speech_tools/config/rules/modules.sh
 	chmod +x debian/libestools$(MAJORVER)-dev/usr/lib/speech_tools/config/system.sh
 
+override_dh_link: 
+	dh_link -p libestools$(MAJORVER) \
+		usr/lib/libestbase.so.$(FULLVER) usr/lib/libestbase.so.$(MAJORVER) \
+		usr/lib/libestools.so.$(FULLVER) usr/lib/libestools.so.$(MAJORVER) \
+		usr/lib/libeststring.so.$(FULLVER) usr/lib/libeststring.so.$(MAJORVER)
+	dh_link -p libestools$(MAJORVER)-dev \
+		usr/lib/libestbase.so.$(MAJORVER)   usr/lib/libestbase.so \
+		usr/lib/libestools.so.$(MAJORVER)   usr/lib/libestools.so \
+		usr/lib/libeststring.so.$(MAJORVER) usr/lib/libeststring.so
 	# Festival related evil
-	ln -sf ../../include/speech_tools $(STD)/usr/lib/speech_tools/include
-	ln -sf ../../libestbase.so ../../libestbase.a \
-		../../libeststring.so ../../libeststring.a \
-		../../libestools.so ../../libestools.a $(STD)/usr/lib/speech_tools/lib
-
+	dh_link -p libestools$(MAJORVER)-dev \
+		/usr/lib/libestbase.so    /usr/lib/speech_tools/lib/libestbase.so \
+		/usr/lib/libestbase.a     /usr/lib/speech_tools/lib/libestbase.a \
+		/usr/lib/libeststring.so  /usr/lib/speech_tools/lib/libeststring.so \
+		/usr/lib/libeststring.a   /usr/lib/speech_tools/lib/libeststring.a \
+		/usr/lib/libestools.so    /usr/lib/speech_tools/lib/libestools.so \
+		/usr/lib/libestools.a     /usr/lib/speech_tools/lib/libestools.a \
+		/usr/include/speech_tools /usr/lib/speech_tools/include
 	# Compatibility with past packages
-	ln -sf speech_tools $(STD)/usr/include/estools
+	dh_link -p libestools$(MAJORVER)-dev /usr/include/speech_tools /usr/include/estools
 
+override_dh_installdocs:
+	dh_installdocs -pspeech-tools -plibestools$(MAJORVER) -plibestools$(MAJORVER)-dev README
+
+override_dh_installman:
 	mkdir -p $(SBTM)
+	install -m 0644 $(patsubst %,debian/%.1,$(S_DOC)) $(SBTM)
 	install -m 0644 debian/manpage.1 $(SBTM)/speech-tools.1
 	gzip -9 $(SBTM)/speech-tools.1
 	for f in $(S_UNDOC) ; do ln -sf speech-tools.1.gz $(SBTM)/$$f.1.gz ; done
 
-binary-indep: build install
-
-binary-arch: build install
-	dh_testdir -a
-	dh_testroot -a
-	dh_installchangelogs -a
-	dh_installdocs -pspeech-tools -plibestools$(MAJORVER) -plibestools$(MAJORVER)-dev README
-	dh_strip -a
-	dh_link -a
-	dh_compress -a
-	dh_fixperms -a
+override_dh_makeshlibs:	
 	dh_makeshlibs -p libestools$(MAJORVER) -V "libestools$(MAJORVER) (>= $(DEBVER))"
+
+override_dh_shlibsdeps:	
 	# speech_tools should not depend on itself
 	dh_shlibdeps -plibestools$(MAJORVER) -l debian/libestools$(MAJORVER)/usr/lib
 	# these ones should depend on speech_tools (and associated libs)
 	dh_shlibdeps -pspeech-tools -Llibestools$(MAJORVER) -l debian/libestools$(MAJORVER)/usr/lib
-	dh_installdeb -a
-	dh_gencontrol -a -u-isp
-	dh_md5sums -a
-	dh_builddeb -a
 
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+%:
+	dh $@
+#
