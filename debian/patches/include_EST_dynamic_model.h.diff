@@ -1,5 +1,5 @@
-This patch is part of a series of patches for speech-tools for
-Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
+This patch is for speech-tools for Debian GNU/Linux,
+so as to use the standard library rather than its older form.
 
 Index: b/include/EST_dynamic_model.h
 ===================================================================

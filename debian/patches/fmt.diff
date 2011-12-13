@@ -1,3 +1,7 @@
+This patch for speech-tools for Debian GNU/Linux,
+is to allow compiling with build hardening enabled.
+The build hardener requires an explicit form for fprintf calls.
+
 diff --git a/siod/siodeditline.c b/siod/siodeditline.c
 index 403ae01..cb8e1f2 100644
 --- a/siod/siodeditline.c

@@ -1,5 +1,6 @@
 This patch is part of a series of patches for speech-tools for
-Debian GNU/Linux, which primarily fix build errors with GCC 4.3 and newer.
+Debian GNU/Linux, introduce THREAD_SAFETY for esd, add esd_name
+and wait till it terminates.
 
 Index: b/audio/esd.cc
 ===================================================================

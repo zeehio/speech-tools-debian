@@ -4,9 +4,11 @@ speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
   * Move to dh style minimum format for rules.
   * Move to source format 3.0 quilt.
   * Refresh contexts, clean up some patches, and del. obs. uncompiled patches
+  * Provide individual patch headers and remove misleading
+    uniform headers about patching for GCC (Closes: #616341)
   * Clean build system and drop obsolete compiler patches.
 
- -- Peter Drysdale <drysdalepete@gmail.com>  Sat, 26 Nov 2011 09:47:52 +1000
+ -- Peter Drysdale <drysdalepete@gmail.com>  Tue, 13 Dec 2011 17:22:52 +1000
 
 speech-tools (1:2.1~release-3) UNRELEASED; urgency=low
 
