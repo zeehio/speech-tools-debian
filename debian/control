@@ -2,7 +2,7 @@ Source: speech-tools
 Section: sound
 Priority: optional
 Maintainer: Jean-Philippe MENGUAL <texou@accelibreinfo.eu>
-Uploaders: Kumar Appaiah <akumar@debian.org>, Jean-Philippe MENGUAL <texou@accelibreinfo.eu>
+Uploaders: Kumar Appaiah <akumar@debian.org>, Peter Drysdale <drysdalepete@gmail.com>
 Build-Depends: debhelper (>= 8),
                autotools-dev,
                gawk | awk,
