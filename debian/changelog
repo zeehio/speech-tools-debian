@@ -1,4 +1,4 @@
-speech-tools (1:2.1~release-3) UNRELEASED; urgency=low
+speech-tools (1:2.1~release-3) unstable; urgency=low
 
   [ Samuel Thibault ]
   * control: Depend on hardening-check.
