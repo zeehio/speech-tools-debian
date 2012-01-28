@@ -1,5 +1,11 @@
-speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
+speech-tools (1:2.1~release-3) UNRELEASED; urgency=low
 
+  [ Samuel Thibault ]
+  * control: Depend on hardening-check.
+  * rules: Set DEB_BUILD_HARDENING=1 to enable hardening.
+  * patches/fmt.diff: Fix format security issue.
+
+  [ Peter Drysdale ]
   * compat: bump to debhelper 8
   * Move to dh style minimum format for rules.
   * Move to source format 3.0 quilt.
@@ -9,14 +15,6 @@ speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
   * Clean build system and drop obsolete compiler patches.
 
  -- Peter Drysdale <drysdalepete@gmail.com>  Tue, 13 Dec 2011 17:22:52 +1000
-
-speech-tools (1:2.1~release-3) UNRELEASED; urgency=low
-
-  * control: Depend on hardening-check.
-  * rules: Set DEB_BUILD_HARDENING=1 to enable hardening.
-  * patches/fmt.diff: Fix format security issue.
-
- -- Samuel Thibault <sthibault@debian.org>  Mon, 07 Nov 2011 00:43:06 +0100
 
 speech-tools (1:2.1~release-2.1) unstable; urgency=low
 
