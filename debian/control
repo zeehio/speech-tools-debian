@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 8),
                libncurses5-dev,
                quilt (>= 0.40),
                hardening-wrapper
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: http://festvox.org/packed/festival/
 Vcs-Git: git://git.debian.org/git/tts/speech-tools.git
 Vcs-Browser: http://git.debian.org/?p=tts/speech-tools.git
