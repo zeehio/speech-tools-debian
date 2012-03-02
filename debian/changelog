@@ -1,6 +1,11 @@
 speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
 
+  [ Samuel Thibault ]
   * control: Bump Standards-Version to 3.9.3 (no changes).
+
+  [ Peter Drysdale ]
+  * Remove old compiler switch fno-shared-data which is not present
+    after gcc>=4.0.
 
  -- Samuel Thibault <sthibault@debian.org>  Sat, 25 Feb 2012 18:00:02 +0100
 
