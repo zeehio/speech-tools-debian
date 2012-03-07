@@ -4,6 +4,8 @@ speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
   * control: Bump Standards-Version to 3.9.3 (no changes).
 
   [ Peter Drysdale ]
+  * Add qualification to unqualified method calls in templates
+    allowing compiling with gcc>=4.7.
   * Remove old compiler switch fno-shared-data which is not present
     after gcc>=4.0.
 
