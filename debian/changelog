@@ -1,8 +1,11 @@
 speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
 
-  * control: Bump Standards-Version to 3.9.3 (no changes).
+  * control:
+    - Bump Standards-Version to 3.9.3 (no changes).
+    - Set libestools2.1 multi-arch: same.
+  * rules: Install libraries to multi-arch path.
 
- -- Samuel Thibault <sthibault@debian.org>  Sat, 25 Feb 2012 18:00:02 +0100
+ -- Samuel Thibault <sthibault@debian.org>  Mon, 26 Mar 2012 00:05:28 +0200
 
 speech-tools (1:2.1~release-3) unstable; urgency=low
 

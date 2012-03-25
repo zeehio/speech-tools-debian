@@ -4,6 +4,8 @@
 
 export DEB_BUILD_HARDENING=1
 
+DEB_HOST_MULTIARCH  ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
 MAJORVER=$(shell sh ./debian/get_version.sh|awk '{print $$2}')
 FULLVER=$(shell sh ./debian/get_version.sh|awk '{print $$1}')
 DEBVER=$(shell dpkg-parsechangelog |awk '/^Version/ { print $$2}')
@@ -61,7 +63,7 @@ override_dh_clean:
 	dh_clean
 
 override_dh_auto_install:
-	dh_install -p libestools$(MAJORVER) lib/*.so.$(FULLVER) /usr/lib
+	dh_install -p libestools$(MAJORVER) lib/*.so.$(FULLVER) /usr/lib/$(DEB_HOST_MULTIARCH)
 
 	dh_installdirs -p speech-tools usr/bin usr/share/man/man1
 	(cd main && cp $(S_PROGRAMS) $(SBT)/usr/bin)
@@ -78,7 +80,7 @@ override_dh_auto_install:
 				<pm.prl >$(SBT)/usr/bin/simple-pitchmark; \
 			chmod +x $(SBT)/usr/bin/simple-pitchmark;)
 
-	dh_install -p libestools$(MAJORVER)-dev lib/*.a /usr/lib/
+	dh_install -p libestools$(MAJORVER)-dev lib/*.a /usr/lib/$(DEB_HOST_MULTIARCH)
 	dh_install -p libestools$(MAJORVER)-dev include/*.h /usr/include/speech_tools/
 	dh_install -p libestools$(MAJORVER)-dev include/unix/*.h /usr/include/speech_tools/unix/
 	# Note: these are possibly internal headers (C++ lossage)
@@ -103,21 +105,21 @@ override_dh_auto_install:
 
 override_dh_link: 
 	dh_link -p libestools$(MAJORVER) \
-		usr/lib/libestbase.so.$(FULLVER) usr/lib/libestbase.so.$(MAJORVER) \
-		usr/lib/libestools.so.$(FULLVER) usr/lib/libestools.so.$(MAJORVER) \
-		usr/lib/libeststring.so.$(FULLVER) usr/lib/libeststring.so.$(MAJORVER)
+		usr/lib/$(DEB_HOST_MULTIARCH)/libestbase.so.$(FULLVER) usr/lib/$(DEB_HOST_MULTIARCH)/libestbase.so.$(MAJORVER) \
+		usr/lib/$(DEB_HOST_MULTIARCH)/libestools.so.$(FULLVER) usr/lib/$(DEB_HOST_MULTIARCH)/libestools.so.$(MAJORVER) \
+		usr/lib/$(DEB_HOST_MULTIARCH)/libeststring.so.$(FULLVER) usr/lib/$(DEB_HOST_MULTIARCH)/libeststring.so.$(MAJORVER)
 	dh_link -p libestools$(MAJORVER)-dev \
-		usr/lib/libestbase.so.$(MAJORVER)   usr/lib/libestbase.so \
-		usr/lib/libestools.so.$(MAJORVER)   usr/lib/libestools.so \
-		usr/lib/libeststring.so.$(MAJORVER) usr/lib/libeststring.so
+		usr/lib/$(DEB_HOST_MULTIARCH)/libestbase.so.$(MAJORVER)   usr/lib/$(DEB_HOST_MULTIARCH)/libestbase.so \
+		usr/lib/$(DEB_HOST_MULTIARCH)/libestools.so.$(MAJORVER)   usr/lib/$(DEB_HOST_MULTIARCH)/libestools.so \
+		usr/lib/$(DEB_HOST_MULTIARCH)/libeststring.so.$(MAJORVER) usr/lib/$(DEB_HOST_MULTIARCH)/libeststring.so
 	# Festival related evil
 	dh_link -p libestools$(MAJORVER)-dev \
-		/usr/lib/libestbase.so    /usr/lib/speech_tools/lib/libestbase.so \
-		/usr/lib/libestbase.a     /usr/lib/speech_tools/lib/libestbase.a \
-		/usr/lib/libeststring.so  /usr/lib/speech_tools/lib/libeststring.so \
-		/usr/lib/libeststring.a   /usr/lib/speech_tools/lib/libeststring.a \
-		/usr/lib/libestools.so    /usr/lib/speech_tools/lib/libestools.so \
-		/usr/lib/libestools.a     /usr/lib/speech_tools/lib/libestools.a \
+		/usr/lib/$(DEB_HOST_MULTIARCH)/libestbase.so    /usr/lib/speech_tools/lib/libestbase.so \
+		/usr/lib/$(DEB_HOST_MULTIARCH)/libestbase.a     /usr/lib/speech_tools/lib/libestbase.a \
+		/usr/lib/$(DEB_HOST_MULTIARCH)/libeststring.so  /usr/lib/speech_tools/lib/libeststring.so \
+		/usr/lib/$(DEB_HOST_MULTIARCH)/libeststring.a   /usr/lib/speech_tools/lib/libeststring.a \
+		/usr/lib/$(DEB_HOST_MULTIARCH)/libestools.so    /usr/lib/speech_tools/lib/libestools.so \
+		/usr/lib/$(DEB_HOST_MULTIARCH)/libestools.a     /usr/lib/speech_tools/lib/libestools.a \
 		/usr/include/speech_tools /usr/lib/speech_tools/include
 	# Compatibility with past packages
 	dh_link -p libestools$(MAJORVER)-dev /usr/include/speech_tools /usr/include/estools

@@ -17,6 +17,7 @@ Vcs-Browser: http://git.debian.org/?p=tts/speech-tools.git
 
 Package: libestools2.1
 Architecture: any
+Multi-arch: same
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: speech-tools1,
