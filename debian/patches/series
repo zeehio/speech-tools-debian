@@ -31,3 +31,4 @@ utils_EST_cutils.c.diff
 copyright_4clausefix.diff
 fmt.diff
 lintianspell.diff
+unqualifiedmethods.diff
