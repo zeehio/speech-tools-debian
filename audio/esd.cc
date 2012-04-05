@@ -42,11 +42,15 @@
 #include <cstring>
 #include <cstdlib>
 #include <cctype>
+#include <unistd.h>
+#include <sstream>
 #include <sys/stat.h>
 #include "EST_Wave.h"
 #include "EST_Option.h"
 #include "audioP.h"
 #include "EST_io_aux.h"
+
+using namespace std;
 
 #ifdef SUPPORT_ESD
 
@@ -61,6 +65,35 @@ extern "C"
 #define __cplusplus
 
 #include <esd.h>
+// Code to block signals while sound is playing.
+// Needed inside Java on (at least some) linux systems
+// as scheduling interrupts seem to break the writes.
+
+#ifdef THREAD_SAFETY
+#include <signal.h>
+#include <pthread.h>
+
+#define THREAD_DECS() \
+    sigset_t  oldmask \
+
+#define THREAD_PROTECT() do { \
+    sigset_t  newmask; \
+    \
+    sigfillset(&newmask); \
+    \
+    pthread_sigmask(SIG_BLOCK, &newmask, &oldmask); \
+    } while(0)
+
+#define THREAD_UNPROTECT() do { \
+     pthread_sigmask(SIG_SETMASK, &oldmask, NULL); \
+     } while (0)
+
+#else
+#define  THREAD_DECS() //empty
+#define  THREAD_PROTECT() //empty
+#define  THREAD_UNPROTECT() //empty
+#endif
+
 
 #define au_serverrate 16000
 
@@ -112,9 +145,17 @@ int play_esd_wave(EST_Wave &inwave, EST_Option &al)
   format |= ESD_BITS16 | ESD_STREAM | ESD_PLAY;
       
   int sample_rate = inwave.sample_rate();
+  THREAD_DECS();
+  THREAD_PROTECT();
+
+  stringstream esd_name_stream;
+  esd_name_stream << "from est/" << getpid() << '\0';
+  // esd_name_stream.freeze();
+  const char *esd_name = esd_name_stream.str().c_str();
+
 
   int esd =  esd_play_stream( format, sample_rate, 
-			      server==EST_String::Empty?NULL:(const char *)server, "from est");
+			      server==EST_String::Empty?NULL:(const char *)server, esd_name);
 
   int n = inwave.num_samples() * sizeof(short) * inwave.num_channels();
   int nw=0, tot=0;
@@ -132,6 +173,38 @@ int play_esd_wave(EST_Wave &inwave, EST_Option &al)
     }
 
   esd_close(esd);
+  int monitor = esd_open_sound(server==EST_String::Empty?NULL:(const char *)server);
+  for (;;)
+    {
+      esd_info_t *info = esd_get_all_info(monitor);
+      if (!info)
+        {
+          break;
+        }
+      esd_player_info_t *player = info->player_list;
+      int done = 1;
+      while (player)
+        {
+          if (strcmp(player->name, esd_name) == 0)
+            {
+              done = 0;
+              break;
+            }
+
+          player = player->next;
+        }
+
+      if (done)
+        {
+          break;
+        }
+
+      esd_free_all_info(info);
+      usleep(10000L);
+    }
+  esd_close(monitor);
+
+  THREAD_UNPROTECT();
 
   return 1;
 }

@@ -1,38 +1,15 @@
-speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
+speech-tools (1:2.1~release-3.1) UNRELEASED; urgency=low
 
-  [ Samuel Thibault ]
-  * control:
-    - Bump Standards-Version to 3.9.3 (no changes).
-    - Set libestools2.1 multi-arch: same.
-  * rules: Install libraries to multi-arch path.
+  * Non-maintainer upload.
+  * Fix FTBFS with gcc 4.7 (Closes: #667377).
+    - Add ftbfs_gcc4.7.diff to fix missing includes, and to add “this->”
+      where needed.
+    - Refresh config_compilers_gcc_defaults.mak.diff to strip unsupported
+      -fno-shared-data.
 
-  [ Peter Drysdale ]
-  * Add qualification to unqualified method calls in templates
-    allowing compiling with gcc>=4.7.
-  * Remove old compiler switch fno-shared-data which is not present
-    after gcc>=4.0.
-
- -- Samuel Thibault <sthibault@debian.org>  Mon, 26 Mar 2012 00:05:28 +0200
+ -- Cyril Brulebois <kibi@debian.org>  Wed, 04 Apr 2012 20:12:02 +0000
 
 speech-tools (1:2.1~release-3) unstable; urgency=low
-
-  [ Samuel Thibault ]
-  * control: Depend on hardening-check.
-  * rules: Set DEB_BUILD_HARDENING=1 to enable hardening.
-  * patches/fmt.diff: Fix format security issue.
-
-  [ Peter Drysdale ]
-  * compat: bump to debhelper 8
-  * Move to dh style minimum format for rules.
-  * Move to source format 3.0 quilt.
-  * Refresh contexts, clean up some patches, and del. obs. uncompiled patches
-  * Provide individual patch headers and remove misleading
-    uniform headers about patching for GCC (Closes: #616341)
-  * Clean build system and drop obsolete compiler patches.
-
- -- Peter Drysdale <drysdalepete@gmail.com>  Tue, 13 Dec 2011 17:22:52 +1000
-
-speech-tools (1:2.1~release-2.1) unstable; urgency=low
 
   * New maintainer (closes: #637820)
 
