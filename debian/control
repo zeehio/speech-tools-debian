@@ -20,6 +20,7 @@ Architecture: any
 Multi-arch: same
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends: multiarch-support
 Conflicts: speech-tools1,
            libestools1.2c102
 Replaces: speech-tools1,

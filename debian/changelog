@@ -7,6 +7,7 @@ speech-tools (1:2.1~release-4) UNRELEASED; urgency=low
   * rules: Install libraries to multi-arch path.
 
   [ Peter Drysdale ]
+  * Add Pre-Depend on multiarch-support as flagged by lintian
   * Add qualification to unqualified method calls in templates
     allowing compiling with gcc>=4.7.
   * Remove old compiler switch fno-shared-data which is not present
