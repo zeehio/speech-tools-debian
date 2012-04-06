@@ -95,10 +95,6 @@ int play_wave(EST_Wave &inwave, EST_Option &al)
       protocol = "macosxaudio";
 	else if (win32audio_supported)
 	    protocol = "win32audio";
-	else if (esd_supported)
-	    protocol = "esdaudio";
-	else if (nas_supported)
-	    protocol = "netaudio";
 	else if (mplayer_supported)
 	    protocol = "mplayeraudio";
 	else
@@ -247,6 +243,10 @@ EST_String options_supported_audio(void)
     audios += "sunaudio";  // we always support this in spite of the hardware
 
     audios += " audio_command";
+    if (nas_supported)
+	audios += " netaudio";
+    else if (esd_supported)
+	audios += " esdaudio";
     if (sun16_supported)
 	audios += " sun16audio";
     if (freebsd16_supported)
@@ -285,7 +285,11 @@ int record_wave(EST_Wave &wave, EST_Option &al)
 	protocol = sr;
     else if (protocol == "")
     {
-	if (sun16_supported)
+	if (nas_supported)
+	    protocol = "netaudio";  // the default protocol
+	else if (esd_supported)
+	    protocol = "esdaudio";  // the default protocol
+	else if (sun16_supported)
 	    protocol = "sun16audio";
 	else if (freebsd16_supported)
 	    protocol = "freebsd16audio";
@@ -295,10 +299,6 @@ int record_wave(EST_Wave &wave, EST_Option &al)
 	    protocol = "irixaudio";
 	else if (win32audio_supported)
 	    protocol = "win32audio";
-	else if (esd_supported)
-	    protocol = "esdaudio";
-	else if (nas_supported)
-	    protocol = "netaudio";
 	else if (mplayer_supported)
 	    protocol = "mplayeraudio";
 	else
