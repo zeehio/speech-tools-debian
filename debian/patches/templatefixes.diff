@@ -1,0 +1,179 @@
+This patch allows compiling of speech_tools on clang 3.0.
+The clang 3.0 compiler is stricter on ordering of template definitions/declarations
+and instantiations than gcc <=4.7.
+This patch should be used in conjunction with the unqualifiedmethods.diff
+patch which provides common patches to allow compiling of speech_tools and
+festival on both gcc 4.7 and clang 3.0.
+This patch is not intended to alter the code in a substantive way.
+No copyright subsists in this patch as it is too trivial.
+
+Author: Peter Drysdale <drysdalepete@gmail.com>
+
+--- speech-tools-2.1~release.orig/utils/EST_ServiceTable.cc
++++ speech-tools-2.1~release/utils/EST_ServiceTable.cc
+@@ -278,6 +278,8 @@ void EST_ServiceTable::names(EST_TList<E
+       names.append(them->k);
+ }
+ 
++Declare_KVL_T(EST_String, EST_ServiceTable::Entry, EST_String_ST_entry)
++
+ const EST_ServiceTable::Entry &EST_ServiceTable::lookup(const EST_String name,
+ 						       const EST_String type)
+ {
+@@ -339,8 +341,6 @@ const EST_ServiceTable::Entry &EST_Servi
+ 
+ 
+ 
+-Declare_KVL_T(EST_String, EST_ServiceTable::Entry, EST_String_ST_entry)
+-
+ #if defined(INSTANTIATE_TEMPLATES)
+ 
+ #include "../base_class/EST_TList.cc"
+--- speech-tools-2.1~release.orig/include/EST_TList.h
++++ speech-tools-2.1~release/include/EST_TList.h
+@@ -268,6 +268,12 @@ bool operator==(const EST_TList<T> &a, c
+ }
+ 
+ template<class T> 
++bool operator!=(const EST_TList<T> &a, const EST_TList<T> &b)
++{ 
++    return !(a==b); 
++}
++
++template<class T> 
+ int index(EST_TList<T> &l, T& val, bool (*eq)(const EST_UItem *, const EST_UItem *) = NULL)
+ { 
+   EST_TItem<T> item(val);
+--- speech-tools-2.1~release.orig/base_class/inst_tmpl/vector_dvector_t.cc
++++ speech-tools-2.1~release/base_class/inst_tmpl/vector_dvector_t.cc
+@@ -40,6 +40,11 @@
+ #include "EST_types.h"
+ #include "EST_TVector.h"
+ 
++static const EST_DVector def_val_DVector;
++static EST_DVector error_return_DVector;
++template <> const EST_DVector *EST_TVector<EST_DVector>::def_val = &def_val_DVector;
++template <> EST_DVector *EST_TVector<EST_DVector>::error_return = &error_return_DVector;
++
+ #if defined(INSTANTIATE_TEMPLATES)
+ 
+ #include "../base_class/EST_TVector.cc"
+@@ -47,10 +52,6 @@
+ template class EST_TVector<EST_DVector>;
+ 
+ #endif
+-static const EST_DVector def_val_DVector;
+-static EST_DVector error_return_DVector;
+-template <> const EST_DVector *EST_TVector<EST_DVector>::def_val = &def_val_DVector;
+-template <> EST_DVector *EST_TVector<EST_DVector>::error_return = &error_return_DVector;
+ 
+ int operator !=(const EST_DVector &fv1, 
+ 		const EST_DVector &fv2)
+--- speech-tools-2.1~release.orig/base_class/inst_tmpl/vector_fmatrix_t.cc
++++ speech-tools-2.1~release/base_class/inst_tmpl/vector_fmatrix_t.cc
+@@ -40,6 +40,11 @@
+ #include "EST_types.h"
+ #include "EST_TVector.h"
+ 
++static const EST_FMatrix def_val_FMatrix;
++static EST_FMatrix error_return_FMatrix;
++template <> const EST_FMatrix *EST_TVector<EST_FMatrix>::def_val = &def_val_FMatrix;
++template <> EST_FMatrix *EST_TVector<EST_FMatrix>::error_return = &error_return_FMatrix;
++
+ #if defined(INSTANTIATE_TEMPLATES)
+ 
+ #include "../base_class/EST_TVector.cc"
+@@ -48,10 +53,6 @@ template class EST_TVector<EST_FMatrix>;
+ 
+ 
+ #endif
+-static const EST_FMatrix def_val_FMatrix;
+-static EST_FMatrix error_return_FMatrix;
+-template <> const EST_FMatrix *EST_TVector<EST_FMatrix>::def_val = &def_val_FMatrix;
+-template <> EST_FMatrix *EST_TVector<EST_FMatrix>::error_return = &error_return_FMatrix;
+ 
+ int operator !=(const EST_FMatrix &fm1, 
+ 		const EST_FMatrix &fm2)
+--- speech-tools-2.1~release.orig/base_class/inst_tmpl/vector_dmatrix_t.cc
++++ speech-tools-2.1~release/base_class/inst_tmpl/vector_dmatrix_t.cc
+@@ -40,6 +40,11 @@
+ #include "EST_types.h"
+ #include "EST_TVector.h"
+ 
++static const EST_DMatrix def_val_DMatrix;
++static EST_DMatrix error_return_DMatrix;
++template <> const EST_DMatrix *EST_TVector<EST_DMatrix>::def_val = &def_val_DMatrix;
++template <> EST_DMatrix *EST_TVector<EST_DMatrix>::error_return = &error_return_DMatrix;
++
+ #if defined(INSTANTIATE_TEMPLATES)
+ 
+ #include "../base_class/EST_TVector.cc"
+@@ -47,10 +52,6 @@
+ template class EST_TVector<EST_DMatrix>;
+ 
+ #endif
+-static const EST_DMatrix def_val_DMatrix;
+-static EST_DMatrix error_return_DMatrix;
+-template <> const EST_DMatrix *EST_TVector<EST_DMatrix>::def_val = &def_val_DMatrix;
+-template <> EST_DMatrix *EST_TVector<EST_DMatrix>::error_return = &error_return_DMatrix;
+ 
+ int operator !=(const EST_DMatrix &fm1, 
+ 		const EST_DMatrix &fm2)
+--- speech-tools-2.1~release.orig/ling_class/EST_FeatureFunctionPackage.cc
++++ speech-tools-2.1~release/ling_class/EST_FeatureFunctionPackage.cc
+@@ -48,6 +48,12 @@ EST_THash<EST_String, EST_FeatureFunctio
+ template <> EST_FeatureFunctionPackage::Entry
+ EST_THash<EST_String, EST_FeatureFunctionPackage::Entry>::Dummy_Value = Dummy_Entry;
+ 
++ostream &operator << (ostream &s,
++		 EST_FeatureFunctionPackage::Entry &e)
++{
++  (void)e;
++  return s << "<<EST_FeatureFunctionPackage::Entry>>";
++}
+ 
+ #if defined(INSTANTIATE_TEMPLATES)
+ 
+@@ -63,13 +69,6 @@ int operator == (const EST_FeatureFuncti
+ return e1.func == e2.func;
+ }
+ 
+-ostream &operator << (ostream &s,
+-		 EST_FeatureFunctionPackage::Entry &e)
+-{
+-  (void)e;
+-  return s << "<<EST_FeatureFunctionPackage::Entry>>";
+-}
+-
+ EST_FeatureFunctionPackage::EST_FeatureFunctionPackage(const EST_String name, int n)
+  : p_name(name), p_entries(n)
+ {
+--- speech-tools-2.1~release.orig/stats/dynamic_program.cc
++++ speech-tools-2.1~release/stats/dynamic_program.cc
+@@ -42,12 +42,6 @@
+ #include "ling_class/EST_Utterance.h"
+ 
+ typedef EST_TVector<EST_Item*> EST_Item_ptr_Vector;
+-#if defined(INSTANTIATE_TEMPLATES)
+-#include "../base_class/EST_TVector.cc"
+-
+-template class EST_TVector<EST_Item*>;
+-
+-#endif
+ 
+ static EST_Item *const def_val_item_ptr = NULL;
+ template <> EST_Item* const *EST_Item_ptr_Vector::def_val = &def_val_item_ptr;
+@@ -55,6 +49,13 @@ template <> EST_Item* const *EST_Item_pt
+ static EST_Item* error_return_item_ptr = NULL;
+ template <> EST_Item* *EST_Item_ptr_Vector::error_return = &error_return_item_ptr;
+ 
++#if defined(INSTANTIATE_TEMPLATES)
++#include "../base_class/EST_TVector.cc"
++
++template class EST_TVector<EST_Item*>;
++
++#endif
++
+ typedef
+ float (*local_cost_function)(const EST_Item *item1,
+ 			     const EST_Item *item2);

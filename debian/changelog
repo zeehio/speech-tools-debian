@@ -1,3 +1,10 @@
+speech-tools (1:2.1~release-5) UNRELEASED; urgency=low
+
+  [ Peter Drysdale ]
+  * Add patch to enable compiling of with clang 3.0.
+
+ -- Peter Drysdale <drysdalepete@gmail.com>  Tue, 01 May 2012 10:22:21 +1000
+
 speech-tools (1:2.1~release-4) unstable; urgency=low
 
   [ Samuel Thibault ]
