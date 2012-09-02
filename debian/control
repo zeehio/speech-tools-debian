@@ -7,6 +7,7 @@ Build-Depends: debhelper (>= 8),
                autotools-dev,
                gawk | awk,
                libesd0-dev,
+               libaudiofile-dev,
                libncurses5-dev,
                quilt (>= 0.40),
                hardening-wrapper
@@ -57,7 +58,7 @@ Replaces: speech-tools-bin
 Suggests: speech-tools-doc
 Description: Edinburgh Speech Tools - user binaries
  This package contains the various highly useful utility programs that use and
- accompany the Edinburgh Speech Tools Library. Audio softwares and some basic
+ accompany the Edinburgh Speech Tools Library. Audio software and some basic
  signal processing software is included in this package.
  .
  The following programs are available:
