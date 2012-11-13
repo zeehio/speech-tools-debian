@@ -6,7 +6,6 @@ Uploaders: Kumar Appaiah <akumar@debian.org>, Peter Drysdale <drysdalepete@gmail
 Build-Depends: debhelper (>= 8),
                autotools-dev,
                gawk | awk,
-               libesd0-dev,
                libaudiofile-dev,
                libncurses5-dev,
                quilt (>= 0.40),
@@ -36,7 +35,6 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends},
          libc6-dev,
-         libesd0-dev,
          libestools2.1 (= ${binary:Version}),
          libncurses5-dev
 Conflicts: speech-tools-dev

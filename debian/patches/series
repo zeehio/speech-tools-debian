@@ -1,9 +1,7 @@
-audio_esd.cc.diff
 audio_gen_audio.cc.diff
 config_compilers_gcc_defaults.mak.diff
 config_config.diff
 config_config.in.diff
-config_modules_esd_audio.mak.diff
 config_project.mak.diff
 config_rules_bin_process.mak.diff
 config_rules_library.mak.diff
@@ -33,3 +31,4 @@ fmt.diff
 lintianspell.diff
 unqualifiedmethods.diff
 templatefixes.diff
+dontbuildesd.diff

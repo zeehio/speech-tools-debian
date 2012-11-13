@@ -2,6 +2,7 @@ speech-tools (1:2.1~release-5) UNRELEASED; urgency=low
 
   [ Peter Drysdale ]
   * Add patch to enable compiling of with clang 3.0.
+  * Remove support for EsounD which has been deprecated by Gnome
   * Fix Lintian flagged spelling error.
   * Add missing dependency on libaudiofile-dev. Thanks
     to Alessio Treglia.  (Closes: #657603)
