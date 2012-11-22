@@ -8,6 +8,9 @@ speech-tools (1:2.1~release-5) UNRELEASED; urgency=low
   * Add missing dependency on libaudiofile-dev. Thanks
     to Alessio Treglia.  (Closes: #657603)
 
+  [ Sergio Oller ]
+  * Add patch to enable native PulseAudio support.
+
  -- Peter Drysdale <drysdalepete@gmail.com>  Mon, 03 Sep 2012 08:53:41 +1000
 
 speech-tools (1:2.1~release-4) unstable; urgency=low
